@@ -1,5 +1,6 @@
 
 
+
 html{
     font-family: "Century Gothic", sans-serif;
     height: 100%;
@@ -17,10 +18,9 @@ html{
     color: #c48366;
     text-align: center;
     text-transform: uppercase;
-    font-size: 36pt;
+    font-size: 25pt;
     padding: 15px;
-    /*! margin-bottom: 40px; */
-    width: 50%;
+    width: 32%;
     margin: 0 auto;
     margin-top: 106px;
 }
@@ -28,11 +28,11 @@ h1 {
     margin: 0 auto;
     text-transform: uppercase;
     text-align: center;
-    padding-top: 15px;
+    /* padding-top: 0px; */
     color: #c48366;
     background-color: #FFFFFF;
-    font-size: 40pt;
-    padding-bottom: 15px;
+    font-size: 75pt;
+    padding-bottom: 15px
 }
 
 body {
@@ -49,11 +49,17 @@ a, a:link, a:visited, a:hover, a:active{
 
 
 @media(max-width: 1024px){
-    .botao-estilo-2 {
-    font-size: 35pt;
-    width: 450px;
-    height: 150px;
+    .container{
+        height: 100%;
+    }
+    .botaoHome{
+        margin-top: 70px;
+        font-size: 10pt;
+        width: 50%;
     }
 }
+
+
+
 
 

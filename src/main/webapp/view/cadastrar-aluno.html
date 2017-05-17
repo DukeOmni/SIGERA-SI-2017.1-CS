@@ -1,38 +1,25 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, user-scalable=no">
-    <title>Cadastrar Aluno</title>
-    <link rel="stylesheet" type="text/css" href="css/styles.css">
-</head>
-<body>
-<header>
-    <a href="index.html"><h1>Siger</h1></a>
-</header>
 <div class="container">
     <h2>Cadastrar Aluno</h2>
-    <form action="" method="">
-        <div class="formulario-grupo">
+    <form name="formAluno">
+        <div>
             <label for="nome">Nome</label><br>
-            <input type="text" id="nome" class="formulario-input"><br>
+            <input type="text" id="nome" ng-model="aluno.nome"><br>
         </div>
-        <div class="formulario-grupo">
+        <div>
             <label for="endereco">Endereço</label><br>
-            <input type="text" id="endereco" class="formulario-input"><br>
+            <input type="text" id="endereco" ng-model="aluno.endereco"><br>
         </div>
-        <div class="formulario-grupo">
+        <div>
             <label for="instituicao">Instituição</label><br>
-            <input type="text" id="instituicao" class="formulario-input"><br>
+            <input type="text" id="instituicao" ng-model="aluno.instituicao"><br>
         </div>
-        <div class="formulario-grupo">
+        <div>
             <label for="telefone">Telefone</label><br>
-            <input type="tel" id="telefone" class="formulario-input"><br>
+            <input type="tel" id="telefone" ng-model="aluno.telefone"><br>
         </div>
         <div class="formulario-botao-posicao">
-            <button type="submit" class="botao-estilo-2">Cadastrar</button>
+            <button ng-click="adicionarAluno(aluno)">Cadastrar</button>
         </div>
     </form>
 </div>
-</body>
-</html>
+

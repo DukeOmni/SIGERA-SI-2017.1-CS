@@ -1,30 +1,14 @@
 <div class="container">
     <h2>Confirmar Alunos</h2>
-    <form action="" method="">
-        <table class="tabela">
-            <tr>
-                <td class="tabela-coluna-confirmacao"><input type="checkbox" id=""></td>
-                <td class="tabela-coluna-nome">Victor Mota</td>
-            </tr>
-            <tr>
-                <td class="tabela-coluna-confirmacao"><input type="checkbox" id=""></td>
-                <td class="tabela-coluna-nome">Victor Mota</td>
-            </tr>
-            <tr>
-                <td class="tabela-coluna-confirmacao"><input type="checkbox" id=""></td>
-                <td class="tabela-coluna-nome">Victor Mota</td>
-            </tr>
-            <tr>
-                <td class="tabela-coluna-confirmacao"><input type="checkbox" id=""></td>
-                <td class="tabela-coluna-nome">Victor Mota</td>
-            </tr>
-            <tr>
-                <td class="tabela-coluna-confirmacao"><input type="checkbox" id=""></td>
-                <td class="tabela-coluna-nome">Victor Mota</td>
-            </tr>
+    <form >
+        <table>
+           <tr ng-repeat="aluno in alunos">
+               <td><input type="checkbox" ng-model="aluno.selecionado"></td>
+               <td>{{aluno.nome}}</td>
+           </tr>
         </table>
-        <div class="formulario-botao-posicao">
-            <button type="submit" class="botao-estilo-2">Gerar Rota</button>
+        <div>
+            <button ng-click="gerarRota(alunos)">Gerar Rota</button>
         </div>
     </form>
 </div>

@@ -16,6 +16,5 @@ angular.module("siger").controller("sigerCtrl", function($scope){
             if(aluno.selecionado) return aluno;
         });
         console.log("Os alunos que irão na rota são" + JSON.stringify($scope.alunosRota));
-        console.log(JSON.stringify($scope.alunos));
     };
 });

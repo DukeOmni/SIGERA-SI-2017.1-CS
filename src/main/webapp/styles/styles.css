@@ -5,8 +5,11 @@ html{
 }
 .container{
     height: 60%;
-    background-image: url("../images/bg.jpg");
-    background-repeat: repeat-x;
+    background: #c48366;
+    background: -webkit-linear-gradient(#B0AD9A, #B7A889, #B99D78, #AE785E, #A1655A, #533A40);
+    background: -o-linear-gradient(#B0AD9A, #B7A889, #B99D78, #AE785E, #A1655A, #533A40);
+    background: -moz-linear-gradient(#B0AD9A, #B7A889, #B99D78, #AE785E, #A1655A, #533A40);
+    background: linear-gradient(#B0AD9A, #B7A889, #B99D78, #AE785E, #A1655A, #533A40);
     padding-top: 195px;
     /* padding-bottom: 13px; */
 }

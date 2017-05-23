@@ -1,15 +1,14 @@
 <div class="container">
     <h2>Confirmar Alunos</h2>
-    <form >
-        <table>
+    <form class="formulario">
+        <table class="tabela">
            <tr ng-repeat="aluno in alunos">
-               <td><input type="checkbox" ng-model="aluno.selecionado"></td>
-               <td>{{aluno.nome}}</td>
+               <td class="tabela-coluna-confirmacao"><input type="checkbox" ng-model="aluno.selecionado"></td>
+               <td class="tabela-coluna-nome">{{aluno.nome}}</td>
            </tr>
         </table>
-        <div>
-            <button ng-click="gerarRota(alunos)">Gerar Rota</button>
+        <div class="formulario-botao-container">
+            <button class="botao-estilo-2" ng-click="gerarRota(alunos)">Gerar Rota</button>
         </div>
     </form>
 </div>
-

@@ -1,31 +1,30 @@
-
-html{
+html {
     font-family: "Century Gothic", sans-serif;
-    height: 100%;
 }
 
-.container{
-    height: 100%;
-    width: 100%;
+.container {
+    background: #FFFFFF;
+    margin: 20px;
 }
 
-.containerTopo{
+.containerTopo {
     margin: 0 auto;
 }
 
-.containerBotao{
-    margin-top: 200px;
+.containerBotao {
+    margin-top: 40%;
+    margin-left: 8%;
+    margin-right: 8%;
 }
 
-.botaoHome{
+.botaoHome {
     background: #FFFFFF;
     color: #c48366;
     text-align: center;
     text-transform: uppercase;
-    font-size: 25pt;
-    padding: 15px;
-    width: 32%;
-    margin: 0 auto;
+    font-size: 20pt;
+    padding: 30px;
+    margin-bottom: 50px;
 }
 
 .botao-estilo-1 {
@@ -35,10 +34,9 @@ html{
     text-transform: uppercase;
     font-size: 20pt;
     padding: 30px;
-    margin-bottom: 40px;
 }
 
-.botao-estilo-2{
+.botao-estilo-2 {
     font-size: 20pt;
     color: #FFFFFF;
     text-transform: uppercase;
@@ -48,14 +46,18 @@ html{
     background-color: #c48366;
 }
 
-.formulario-container{
-    background: #FFFFFF;
+.formulario {
+    color: #c48366;
+    font-size: 15pt;
+}
+
+.formulario-grupo {
     margin: 20px 20px 20px 20px;
 }
 
-.formulario-input{
+.formulario-input {
     font-size: 15pt;
-    color:#5e5e5e;
+    color: #5e5e5e;
     padding: 5px;
     margin-top: 10px;
     width: 100%;
@@ -63,16 +65,14 @@ html{
     border-radius: 5px;
 }
 
-.formulario-grupo{
-    margin: 20px 20px 20px 20px;
-}
-
-.formulario-botao-posicao{
-    margin-bottom: 50px;
+.formulario-botao-container {
+    padding-bottom: 20px;
+    text-align: center;
 }
 
 h1 {
     margin: 0 auto;
+    font-size: 30pt;
     text-transform: uppercase;
     text-align: center;
     color: #c48366;
@@ -85,34 +85,28 @@ h2 {
     text-align: center;
     color: #c48366;
     font-size: 20pt;
-    padding-bottom: 15px
+    padding-top: 20px;
+    padding-bottom: 15px;
 }
 
 body {
-    margin: 0 auto;
-    height: 100%;
+    margin: 0;
     background: #c48366;
     background: -webkit-linear-gradient(#B0AD9A, #B7A889, #B99D78, #AE785E, #A1655A, #533A40);
     background: -o-linear-gradient(#B0AD9A, #B7A889, #B99D78, #AE785E, #A1655A, #533A40);
     background: -moz-linear-gradient(#B0AD9A, #B7A889, #B99D78, #AE785E, #A1655A, #533A40);
-    background: linear-gradient(#B0AD9A, #B7A889, #B99D78, #AE785E, #A1655A, #533A40);	
+    background: linear-gradient(#B0AD9A, #B7A889, #B99D78, #AE785E, #A1655A, #533A40);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
-a, a:link, a:visited, a:hover, a:active{
+a, a:link, a:visited, a:hover, a:active {
     text-decoration: none;
     color: inherit;
 }
 
-@media(max-width: 1024px){
-    .container{
-        height: 100%;
-    }
-    h1{
-        font-size: 30pt;
-    }
-    .botaoHome{
-        margin-top: 45px;
-        font-size: 14pt;
-        width: 50%;
+@media (orientation: landscape) {
+    .containerBotao {
+        margin-top: 15%;
     }
 }

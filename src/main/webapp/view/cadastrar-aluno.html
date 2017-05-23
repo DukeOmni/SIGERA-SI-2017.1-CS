@@ -1,5 +1,5 @@
 <div class="container">
-    <form class="formulario-container" name="formAluno">
+    <form class="formulario" name="formAluno">
         <h2>Cadastrar Aluno</h2>
         <div class="formulario-grupo">
             <label for="nome">Nome</label><br>
@@ -17,9 +17,8 @@
             <label for="telefone">Telefone</label><br>
             <input class="formulario-input" type="tel" id="telefone" ng-model="aluno.telefone"><br>
         </div>
-        <div class="formulario-botao-posicao">
+        <div class="formulario-botao-container">
             <button class="botao-estilo-2" ng-click="adicionarAluno(aluno)">Cadastrar</button>
         </div>
     </form>
 </div>
-

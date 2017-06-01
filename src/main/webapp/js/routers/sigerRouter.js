@@ -11,5 +11,9 @@ angular.module("siger").config(function($routeProvider){
     when("/gerarRota", {
         templateUrl: "view/gerar-rota.html",
         controller: "sigerCtrl" 
+    }).
+    when("/mapaRota", {
+        templateUrl: "view/mapaRota.html",
+        controller: "sigerCtrl"
     });
 });

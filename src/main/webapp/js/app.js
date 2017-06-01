@@ -1,1 +1,1 @@
-angular.module("siger",["ngRoute"]);
+angular.module("siger",["ngRoute", "ngMap"]);

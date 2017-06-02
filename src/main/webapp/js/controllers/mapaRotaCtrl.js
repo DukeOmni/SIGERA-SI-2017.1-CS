@@ -8,7 +8,7 @@ angular.module("siger").controller("mapaRotaCtrl", function($scope, GeoCoder){
     {nome: "Ana", endereco: "Tocantins", instituicao: "Exemplo1", telefone: "Exemplo1"}
     ];
 
-    $scope.destino = "5ª Avenida - Setor Leste Universitário, Goiânia - GO";
+    $scope.destino = "Brasília";
     $scope.waypoint = [];
 
     $scope.initMap = function (map){
@@ -18,27 +18,20 @@ angular.module("siger").controller("mapaRotaCtrl", function($scope, GeoCoder){
 
      function calcRota (){ //Carregaria do backend o array de alunosRota para poder calcular a rota;
         var alunos = $scope.alunos;
-
         for (var i = 0, len = alunos.length; i < len; i++){
-           $scope.waypoint.push(alunos[i].endereco);
+           $scope.waypoint[i] = alunos[i].endereco;
         };
 
         console.log($scope.waypoint);
 
-        for (var i = 0, len = $scope.waypoint.length; i < len; i++){
-            var address = $scope.waypoint[i];
-            GeoCoder.geocode({address: "address"}).then(function (result) {
-                console.log(address + " dentro do segundo for")
-                console.log(JSON.stringify(result[0].geometry.location));
-            });
-        };
-    };
-
-    //  var codeAddress = function (address){ //Usar para transformar o endereço string em coordenadas para colocar no mapa
-    //     var x;
-    //     var endereco = address;
-    //     GeoCoder.geocode({address: "endereco"}).then(function (result) {
-    //          console.log(JSON.stringify(result[0].geometry.location) + " COORDENADA DO ENDEREÇO DE CIMA");
-    //     }.bind(this));
-    // }; 
+        // for (var i = 0, len = $scope.waypoint.length; i < len; i++){
+        //     var address = $scope.waypoint[i];
+        //     GeoCoder.geocode({address: "address"}).then(async function (result) {
+        //         console.log()
+        //         let aux = await result[0].geometry.location;
+        //         coordRota[i] = aux;
+        //         console.log(JSON.stringify(coordRota[i]));
+        //     });
+        // };
+    }; 
 });

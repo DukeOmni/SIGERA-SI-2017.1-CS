@@ -1,1 +1,9 @@
-<ng-map center = "current-location"></ng-map>
+<ng-map center = "current-location"  map-initialized="initMap(map)">
+   <directions
+        draggable = "true"
+        travel-mode = "DRIVING"
+        waypoints = "{{waypoint}}"
+        origin = "current-location"
+        destination = "{{destino}}"
+    ></directions> 
+</ng-map>

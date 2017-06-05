@@ -16,7 +16,7 @@ angular.module("siger").controller("mapaRotaCtrl", function($scope, GeoCoder, $t
     $timeout(function () { //Carregamento adiado em função da necessidade de calcular as coordenadas dos waypoints antes, pois na inicialização do mapa esses valores já devem existir para não resultar em erro
         console.log("Mapa carregado");
         $scope.pauseLoading = false;
-    }, 4500);
+    }, 500 * $scope.alunos.length); //Seria legal uma barra de carregamento durante esse tempo de processamento
 
     calcRota();
 

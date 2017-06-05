@@ -1,37 +1,46 @@
-angular.module("siger").controller("mapaRotaCtrl", function($scope, GeoCoder){
+angular.module("siger").controller("mapaRotaCtrl", function($scope, GeoCoder, $timeout){
     
     $scope.alunos = [{nome: "Alex", endereco: "Aparecida de Goiânia, Rua 512", instituicao: "UFG", telefone: "Exemplo1"},
-    {nome: "Joao", endereco: "Aparecida de Goiânia", instituicao: "Exemplo2", telefone: "Exemplo2"},
+    {nome: "Joao", endereco: "Via do Conhecimento, km1, Pato Branco, Paraná", instituicao: "Exemplo2", telefone: "Exemplo2"},
     {nome: "Maria", endereco: "Rio Verde", instituicao: "Exemplo1", telefone: "Exemplo1"},
     {nome: "Caio", endereco: "São Paulo", instituicao: "Exemplo1", telefone: "Exemplo1"},
     {nome: "Vitor", endereco: "Minas Gerais", instituicao: "Exemplo1", telefone: "Exemplo1"},
     {nome: "Ana", endereco: "Tocantins", instituicao: "Exemplo1", telefone: "Exemplo1"}
-    ];
+    ]; //Carregaria do backend o array de alunosRota para poder calcular a rota;
 
     $scope.destino = "Brasília";
     $scope.waypoint = [];
+    $scope.googleMapUrl = "https://maps.google.com/maps/api/js";
+    $scope.pauseLoading = true;
 
-    $scope.initMap = function (map){
-        calcRota();
-        $scope.$apply();
-    };
+    $timeout(function () { //Carregamento adiado em função da necessidade de calcular as coordenadas dos waypoints antes, pois na inicialização do mapa esses valores já devem existir para não resultar em erro
+        console.log("Mapa carregado");
+        $scope.pauseLoading = false;
+    }, 4500);
 
-     function calcRota (){ //Carregaria do backend o array de alunosRota para poder calcular a rota;
+    calcRota();
+
+    $scope.waypoint = traduzRota($scope.waypoint, 0);
+
+     function calcRota (){ 
         var alunos = $scope.alunos;
         for (var i = 0, len = alunos.length; i < len; i++){
            $scope.waypoint[i] = alunos[i].endereco;
         };
+    };
 
-        console.log($scope.waypoint);
+        function traduzRota(address, index){
+            var addressAux = address[index];
+            GeoCoder.geocode({address: addressAux}).then(function (result) { 
+                console.log(addressAux + " " + JSON.stringify(result[0].geometry.location));
+                address[index] = {location: result[0].geometry.location};
+                if(index == address.length - 1){ //Chegou no final do array
+                    return address;
+                };
+                index++;
+                return traduzRota(address, index);
+            });
+            return address;
+        };
 
-        // for (var i = 0, len = $scope.waypoint.length; i < len; i++){
-        //     var address = $scope.waypoint[i];
-        //     GeoCoder.geocode({address: "address"}).then(async function (result) {
-        //         console.log()
-        //         let aux = await result[0].geometry.location;
-        //         coordRota[i] = aux;
-        //         console.log(JSON.stringify(coordRota[i]));
-        //     });
-        // };
-    }; 
 });

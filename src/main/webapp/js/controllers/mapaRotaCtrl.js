@@ -32,8 +32,8 @@ angular.module("siger").controller("mapaRotaCtrl", function($scope, GeoCoder, $t
         function traduzRota(address, index){
             var addressAux = address[index];
             GeoCoder.geocode({address: addressAux}).then(function (result) { 
-                console.log(addressAux + " " + JSON.stringify(result[0].geometry.location));
-                address[index] = {location: result[0].geometry.location};
+                console.log(addressAux + " " + JSON.stringify(result[0].geometry.location)); //Mostra no console a coordenada de cada endereço
+                address[index] = {location: result[0].geometry.location, stopover: true};
                 if(index == address.length - 1){ //Chegou no final do array
                     return address;
                 };

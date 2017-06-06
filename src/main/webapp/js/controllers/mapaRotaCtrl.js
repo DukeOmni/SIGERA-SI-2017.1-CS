@@ -53,17 +53,21 @@ angular.module("siger").controller("mapaRotaCtrl", function($scope, GeoCoder, $t
         var currentPosition = [];
         NavigatorGeolocation.getCurrentPosition().then(function(position) { //Chamada assíncrona para a api do google maps
             currentPosition[0] = position.coords.latitude + "," + position.coords.longitude;
-            calculaDistancia(currentPosition, rota).then(function(distancia){ //Após receber o valor da posição atual chamar a função calculaDistancia que retorna a distancia que é recebida pela API do Distance Matrix
-                // console.log(JSON.stringify(distancia.rows[0].elements[0].distance.value)); //Como acessar o valor da distancia, como o array rota são justamente os waypoints, temos que as posições de elements e rota são equivalentes, sendo assim o primeiro endereço da rota equivale ao primeiro valor de distância de elements
-               
+            calculaDistancia(currentPosition, rota).then(function(distancia){ //Após receber o valor da posição atual chamar a função calculaDistancia que retorna a distancia que é recebida pela API do Distance Matrix             
                 var distancias = []; //Trecho feito com intenção de deixar o código mais claro
                 for(var i = 0, len = distancia.rows[0].elements.length; i < len; i++){
-                    distancias[i] = distancia.rows[0].elements[i].distance.value;
+                    distancias[i] = {distancia: distancia.rows[0].elements[i].distance.value, coordenada: rota[i].location};
                 };
-                
-                
-                console.log(distancias.indexOf(Math.min(...distancias)));
-
+                var auxArray = [];
+                var menorAux;
+                for(var i = 0, len = rota.length; i < len; i++){
+                    for(var x = 0, len = distancias.length; x < len; x++){
+                        auxArray[x] = distancias[x].distancia;
+                    };
+                    menorAux = auxArray.indexOf(Math.min(...auxArray));
+                    rota[i].location = distancias[menorAux].coordenada;
+                    distancias.splice(menorAux, 1);
+                };
             });
         });
     };

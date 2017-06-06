@@ -114,6 +114,9 @@ body {
     background-attachment: fixed;
 }
 
+map#mapa {
+    height: 100%;
+}
 a, a:link, a:visited, a:hover, a:active {
     text-decoration: none;
     color: inherit;

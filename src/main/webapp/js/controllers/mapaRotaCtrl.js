@@ -32,7 +32,7 @@ angular.module("siger").controller("mapaRotaCtrl", function($scope, GeoCoder, $t
 
     $scope.mapInit = function(map){
         reorganizarRota($scope.waypoint); //Nesse ponto da execução, $scope.waypoint já é um array adequado para a execução de reorganizarRota
-    };
+        };
 
     function traduzRota(address, index){
             var addressAux = address[index];

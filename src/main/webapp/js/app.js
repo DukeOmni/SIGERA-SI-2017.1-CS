@@ -1,1 +1,1 @@
-angular.module("siger",["ngRoute", "ngMap"]);
+angular.module("siger",["ngRoute", "ngMap", "angular.google.distance"]);

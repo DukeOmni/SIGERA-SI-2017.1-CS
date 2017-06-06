@@ -114,8 +114,9 @@ body {
     background-attachment: fixed;
 }
 
-map#mapa {
-    height: 100%;
+ng-map#mapa {
+    display: block;
+    height: 612px;
 }
 a, a:link, a:visited, a:hover, a:active {
     text-decoration: none;

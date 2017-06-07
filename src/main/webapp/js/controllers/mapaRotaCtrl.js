@@ -1,14 +1,14 @@
 angular.module("siger").controller("mapaRotaCtrl", function($scope, GeoCoder, $timeout, GoogleDistanceAPI, NavigatorGeolocation){
     
     $scope.alunos = [{nome: "Alex", endereco: "Aparecida de Goiânia, Rua 512", instituicao: "UFG", telefone: "Exemplo1"},
-    {nome: "Joao", endereco: "Via do Conhecimento, km1, Pato Branco, Paraná", instituicao: "Exemplo2", telefone: "Exemplo2"},
-    {nome: "Maria", endereco: "Rio Verde", instituicao: "Exemplo1", telefone: "Exemplo1"},
-    {nome: "Caio", endereco: "São Paulo", instituicao: "Exemplo1", telefone: "Exemplo1"},
-    {nome: "Vitor", endereco: "Minas Gerais", instituicao: "Exemplo1", telefone: "Exemplo1"},
-    {nome: "Ana", endereco: "Tocantins", instituicao: "Exemplo1", telefone: "Exemplo1"}
+    {nome: "Joao", endereco: "Goiânia, Praça Cívica", instituicao: "Exemplo2", telefone: "Exemplo2"},
+    {nome: "Maria", endereco: "Goiânia, Setor Bueno", instituicao: "Exemplo1", telefone: "Exemplo1"},
+    {nome: "Caio", endereco: "Goiânia, Setor Universitário", instituicao: "Exemplo1", telefone: "Exemplo1"},
+    {nome: "Vitor", endereco: "Aparecida de Goiânia, Cidade empresarial", instituicao: "Exemplo1", telefone: "Exemplo1"},
+    {nome: "Ana", endereco: "Aparecida de Goiânia, Vila Brasília", instituicao: "Exemplo1", telefone: "Exemplo1"}
     ]; //Carregaria do backend o array de alunosRota para poder calcular a rota;
 
-    $scope.destino = "Brasília";
+    $scope.destino = "Goiânia, UFG campus samambaia";
     $scope.waypoint = [];
     $scope.googleMapUrl = "https://maps.google.com/maps/api/js";
     $scope.pauseLoading = true;
@@ -16,7 +16,7 @@ angular.module("siger").controller("mapaRotaCtrl", function($scope, GeoCoder, $t
     $timeout(function () { //Carregamento adiado em função da necessidade de calcular as coordenadas dos waypoints antes, pois na inicialização do mapa esses valores já devem existir para não resultar em erro
         console.log("Mapa carregado");
         $scope.pauseLoading = false;
-    }, 1500 * $scope.alunos.length); //Seria legal uma barra de carregamento durante esse tempo de processamento
+    }, 1000 * $scope.alunos.length); //Seria legal uma barra de carregamento durante esse tempo de processamento
 
     calcRota(); //Pega os endereços dos alunos que irão na rota
 
@@ -31,8 +31,8 @@ angular.module("siger").controller("mapaRotaCtrl", function($scope, GeoCoder, $t
     };
 
     $scope.mapInit = function(map){
-        reorganizarRota($scope.waypoint); //Nesse ponto da execução, $scope.waypoint já é um array adequado para a execução de reorganizarRota
-        };
+        reorganizarRota($scope.waypoint); //Nesse ponto da execução, $scope.waypoint já é um array adequado para a execução de reorganizarRota    
+    };
 
     function traduzRota(address, index){
             var addressAux = address[index];
@@ -50,6 +50,7 @@ angular.module("siger").controller("mapaRotaCtrl", function($scope, GeoCoder, $t
         };
 
     function reorganizarRota(rota){
+        console.log("Reorganizando a rota");
         var currentPosition = [];
         NavigatorGeolocation.getCurrentPosition().then(function(position) { //Chamada assíncrona para a api do google maps
             currentPosition[0] = position.coords.latitude + "," + position.coords.longitude;
@@ -60,14 +61,22 @@ angular.module("siger").controller("mapaRotaCtrl", function($scope, GeoCoder, $t
                 };
                 var auxArray = [];
                 var menorAux;
-                for(var i = 0, len = rota.length; i < len; i++){
-                    for(var x = 0, len = distancias.length; x < len; x++){
-                        auxArray[x] = distancias[x].distancia;
-                    };
-                    menorAux = auxArray.indexOf(Math.min(...auxArray));
-                    rota[i].location = distancias[menorAux].coordenada;
-                    distancias.splice(menorAux, 1);
+                for(var x = 0, len = distancias.length; x < len; x++){
+                    auxArray[x] = distancias[x].distancia;
                 };
+                for(var i = 0, len = rota.length; i < len; i++){
+                    menorAux = auxArray.indexOf(Math.min(...auxArray));
+                    // console.log(JSON.stringify(auxArray[auxArray.indexOf(Math.min(...auxArray))]));
+                    
+                    for(var j = 0, len = distancias.length; j < len; j ++){
+                        if(distancias[j].distancia == Math.min(...auxArray)){
+                            rota[i].location = distancias[j].coordenada;
+                        };
+                    };
+                    auxArray.splice(menorAux, 1);
+                    // console.log(JSON.stringify(rota[i].location));
+                };
+            //    console.log(JSON.stringify($scope.waypoint));
             });
         });
     };

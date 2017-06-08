@@ -13,10 +13,7 @@ angular.module("siger").controller("mapaRotaCtrl", function($scope, GeoCoder, $t
     $scope.googleMapUrl = "https://maps.google.com/maps/api/js";
     $scope.pauseLoading = true;
 
-    $timeout(function () { //Carregamento adiado em função da necessidade de calcular as coordenadas dos waypoints antes, pois na inicialização do mapa esses valores já devem existir para não resultar em erro
-        console.log("Mapa carregado");
-        $scope.pauseLoading = false;
-    }, 1000 * $scope.alunos.length); //Seria legal uma barra de carregamento durante esse tempo de processamento
+    //Substitui o tempo de carregamento pelo tempo de processamento dos dados iniciais da rota :)
 
     calcRota(); //Pega os endereços dos alunos que irão na rota
 
@@ -41,6 +38,7 @@ angular.module("siger").controller("mapaRotaCtrl", function($scope, GeoCoder, $t
                 console.log(addressAux + " " + JSON.stringify(result[0].geometry.location)); //Mostra no console a coordenada de cada endereço
                 address[index] = {location: result[0].geometry.location, stopover: true};
                 if(index == address.length - 1){ //Chegou no final do array
+                    $scope.pauseLoading = false; //Assim que traduzir para coordenada o último endereço da rota, pode carregar o mapa
                     return address;
                 };
                 index++;

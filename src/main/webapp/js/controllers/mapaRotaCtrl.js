@@ -1,4 +1,4 @@
-angular.module("siger").controller("mapaRotaCtrl", function($scope, GeoCoder, $timeout, GoogleDistanceAPI, NavigatorGeolocation){
+angular.module("siger").controller("mapaRotaCtrl", function($scope, GeoCoder, GoogleDistanceAPI, NavigatorGeolocation){
     
     $scope.alunos = [{nome: "Alex", endereco: "Aparecida de Goiânia, Rua 512", instituicao: "UFG", telefone: "Exemplo1"},
     {nome: "Joao", endereco: "Goiânia, Praça Cívica", instituicao: "Exemplo2", telefone: "Exemplo2"},

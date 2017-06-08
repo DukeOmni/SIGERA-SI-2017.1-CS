@@ -8,10 +8,10 @@ angular.module("siger").controller("mapaRotaCtrl", function($scope, GeoCoder, $t
     {nome: "Ana", endereco: "Aparecida de Goiânia, Vila Brasília", instituicao: "Exemplo1", telefone: "Exemplo1"}
     ]; //Carregaria do backend o array de alunosRota para poder calcular a rota;
 
-    $scope.destino = "Goiânia, UFG campus samambaia";
-    $scope.waypoint = [];
-    $scope.googleMapUrl = "https://maps.google.com/maps/api/js";
-    $scope.pauseLoading = true;
+    $scope.destino = "Goiânia, UFG campus samambaia"; //Destino pode ser carregado do backend
+    $scope.waypoint = []; //Inicialização do array dos pontos de parada da rota
+    $scope.googleMapUrl = "https://maps.google.com/maps/api/js"; //Definição da url da API do google para usar posteriormente no lazy-load do mapa definido na tag html da view
+    $scope.pauseLoading = true; //Variável que "trava" o carregamento da div que contém o mapa
 
     //Substitui o tempo de carregamento pelo tempo de processamento dos dados iniciais da rota :)
 
@@ -20,34 +20,34 @@ angular.module("siger").controller("mapaRotaCtrl", function($scope, GeoCoder, $t
     $scope.waypoint = traduzRota($scope.waypoint, 0); //Traduz os endereços de string para coordenadas
 
 
-     function calcRota (){ 
+     function calcRota (){ //Função que preenche o array de pontos de parada com os endereços dos alunos que irão na rota
         var alunos = $scope.alunos;
         for (var i = 0, len = alunos.length; i < len; i++){
            $scope.waypoint[i] = alunos[i].endereco;
         };
     };
 
-    $scope.mapInit = function(map){
+    $scope.mapInit = function(map){  //Função que executa após a inicialização do mapa
         reorganizarRota($scope.waypoint); //Nesse ponto da execução, $scope.waypoint já é um array adequado para a execução de reorganizarRota    
     };
 
-    function traduzRota(address, index){
+    function traduzRota(address, index){ //Função que traduz os enderenços em string para coordenada
             var addressAux = address[index];
             
-            GeoCoder.geocode({address: addressAux}).then(function (result) { 
+            GeoCoder.geocode({address: addressAux}).then(function (result) { //Chamada a API da google de GEOCODIFICAÇÃO, passando como parâmetro um endereço em string e recebendo como resultado um array que contém a resposta
                 console.log(addressAux + " " + JSON.stringify(result[0].geometry.location)); //Mostra no console a coordenada de cada endereço
-                address[index] = {location: result[0].geometry.location, stopover: true};
+                address[index] = {location: result[0].geometry.location, stopover: true};   //Atribui ao array que será retornado para o array dos pontos de parada o objeto no modelo requerido para criar a rota no mapa
                 if(index == address.length - 1){ //Chegou no final do array
                     $scope.pauseLoading = false; //Assim que traduzir para coordenada o último endereço da rota, pode carregar o mapa
-                    return address;
+                    return address;     //Retorna o array de coordenadas para o array de pontos de parada
                 };
-                index++;
-                return traduzRota(address, index);
+                index++;    
+                return traduzRota(address, index);      //Chamada recursiva da própria função caso não tenha chegado ao final do array
             });
-            return address;
+            return address; 
         };
 
-    function reorganizarRota(rota){
+    function reorganizarRota(rota){ //Função que reorganiza as coordenadas dos pontos de parada para que a rota tenha o caminho mínimo
         console.log("Reorganizando a rota");
         var currentPosition = [];
         NavigatorGeolocation.getCurrentPosition().then(function(position) { //Chamada assíncrona para a api do google maps
@@ -62,9 +62,8 @@ angular.module("siger").controller("mapaRotaCtrl", function($scope, GeoCoder, $t
                 for(var x = 0, len = distancias.length; x < len; x++){
                     auxArray[x] = distancias[x].distancia;
                 };
-                for(var i = 0, len = rota.length; i < len; i++){
+                for(var i = 0, len = rota.length; i < len; i++){ //Laço responsável por reorganizar a rota para obter o caminho mínimo
                     menorAux = auxArray.indexOf(Math.min(...auxArray));
-                    // console.log(JSON.stringify(auxArray[auxArray.indexOf(Math.min(...auxArray))]));
                     
                     for(var j = 0, len = distancias.length; j < len; j ++){
                         if(distancias[j].distancia == Math.min(...auxArray)){
@@ -72,16 +71,14 @@ angular.module("siger").controller("mapaRotaCtrl", function($scope, GeoCoder, $t
                         };
                     };
                     auxArray.splice(menorAux, 1);
-                    // console.log(JSON.stringify(rota[i].location));
                 };
-            //    console.log(JSON.stringify($scope.waypoint));
             });
         });
     };
 
     function calculaDistancia(currentPosition, rota){ //Função que recebe a posição atual e o array que corresponde a rota dos alunos
         var rotaAux = [];
-        for(var i = 0, len = rota.length; i < len; i++){
+        for(var i = 0, len = rota.length; i < len; i++){ //Preparando o array dos pontos de parada para ser usado como argumento na chamada a API Distance Matrix que retorna a distancia de cada um do ponto de origem
             rotaAux[i] = rota[i].location.lat() + "," + rota[i].location.lng();
         };
         var args = {

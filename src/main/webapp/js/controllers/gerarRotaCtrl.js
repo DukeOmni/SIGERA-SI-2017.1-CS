@@ -1,4 +1,4 @@
-angular.module("siger").controller("gerarRotaCtrl", function($scope){
+angular.module("siger").controller("gerarRotaCtrl", function($scope){ //Incluir o serviço alunosAPI
     
     $scope.alunos = [{nome: "Alex", endereco: "Aparecida de Goiânia, Rua 512", instituicao: "UFG", telefone: "Exemplo1"},
     {nome: "Joao", endereco: "Goiânia, Praça Cívica", instituicao: "Exemplo2", telefone: "Exemplo2"},
@@ -8,6 +8,14 @@ angular.module("siger").controller("gerarRotaCtrl", function($scope){
     {nome: "Ana", endereco: "Aparecida de Goiânia, Vila Brasília", instituicao: "Exemplo1", telefone: "Exemplo1"}
     ];
     
+    // var carregarAlunos = function(){  //Assim que o backend ficar pronto
+    //     alunosAPI.getAlunos().then(function(data){
+    //         $scope.alunos = data.data;
+    //     }, function(data){
+    //         console.log("Não foi possível carregar os alunos :(");
+    //     });
+    // }; 
+
     $scope.gerarRota = function(alunos){
         $scope.alunosRota = alunos.filter(function(aluno){
             if(aluno.selecionado) return aluno;

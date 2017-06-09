@@ -22,7 +22,7 @@ app.get('/operadoras', function(req, res){ //Retorna o objeto operadoras quando 
 });
 
 app.get('/contatos', function(req, res){
-    res.write(JSON.stringify(contatos));
+    res.write(JSON.stringify(contatos)); //Essa linha me fez entender como quer fazer, vou implementar.
     res.end();
 });
 

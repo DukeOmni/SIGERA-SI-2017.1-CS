@@ -3,29 +3,38 @@
         <h2>Cadastrar Aluno</h2>
         <div class="formulario-grupo">
             <label for="nome">Nome</label><br>
-            <input class="formulario-input" type="text" id="nome" name="nome" ng-model="aluno.nome" ng-required="true"><br>
+            <input class="formulario-input" type="text" id="nome" name="nome" ng-model="aluno.nome"
+                   ng-required="true"><br>
+            <div ng-show="formAluno.nome.$error.required && formAluno.nome.$dirty">Preencha o nome por favor</div>
         </div>
         <div class="formulario-grupo">
             <label for="endereco">Endereço</label><br>
-            <input class="formulario-input" type="text" id="endereco" name="endereco" ng-model="aluno.endereco" ng-required="true"><br>
+            <input class="formulario-input" type="text" id="endereco" name="endereco" ng-model="aluno.endereco"
+                   ng-required="true"><br>
+            <div ng-show="formAluno.endereco.$error.required && formAluno.endereco.$dirty">Preencha o endereço por
+                favor
+            </div>
         </div>
         <div class="formulario-grupo">
             <label for="instituicao">Instituição</label><br>
-            <input class="formulario-input" type="text" id="instituicao" name="instituicao" ng-model="aluno.instituicao" ng-required="true"><br>
+            <input class="formulario-input" type="text" id="instituicao" name="instituicao" ng-model="aluno.instituicao"
+                   ng-required="true"><br>
+            <div ng-show="formAluno.instituicao.$error.required && formAluno.instituicao.$dirty">Preencha a instituição
+                por favor
+            </div>
         </div>
         <div class="formulario-grupo">
             <label for="telefone">Telefone</label><br>
-            <input class="formulario-input" type="tel" id="telefone" ng-model="aluno.telefone" name="telefone" ng-required="true" ng-pattern="/^\d{4,5}-\d{4}$/"><br>
+            <input class="formulario-input" type="tel" id="telefone" ng-model="aluno.telefone" name="telefone"
+                   ng-required="true" ng-pattern="/^\d{4,5}-\d{4}$/"><br>
+            <div ng-show="formAluno.telefone.$error.required && formAluno.telefone.$dirty">Preencha o telefone por
+                favor
+            </div>
+            <div ng-show="formAluno.telefone.$error.pattern">O telefone deve ser no formato XXXXX-XXXX</div>
         </div>
         <div class="formulario-botao-container">
-            <button class="botao-estilo-2" ng-click="adicionarAluno(aluno)" ng-disabled="formAluno.$invalid">Cadastrar</button>
+            <button class="botao-estilo-2" ng-click="adicionarAluno(aluno)" ng-disabled="formAluno.$invalid">Cadastrar
+            </button>
         </div>
     </form>
-    
-    <div ng-show = "formAluno.nome.$error.required && formAluno.nome.$dirty">Preencha o nome por favor</div>
-    <div ng-show = "formAluno.endereco.$error.required && formAluno.endereco.$dirty">Preencha o endereço por favor</div>
-    <div ng-show = "formAluno.instituicao.$error.required && formAluno.instituicao.$dirty">Preencha a instituição por favor</div>
-    <div ng-show = "formAluno.telefone.$error.required && formAluno.telefone.$dirty">Preencha o telefone por favor</div>
-    <div ng-show = "formAluno.telefone.$error.pattern">O telefone deve ser no formato XXXXX-XXXX</div>
-
 </div>

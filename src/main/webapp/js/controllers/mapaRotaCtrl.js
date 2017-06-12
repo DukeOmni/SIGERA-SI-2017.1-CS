@@ -91,7 +91,7 @@ angular.module("siger").controller("mapaRotaCtrl", function($scope, GeoCoder, Go
         return distancia;
     };
 
-    $scope.chamarGoogleMapSite = function (){
+    $scope.chamarGoogleMapSite = function (){ //Função que redireciona para o site do google maps
         console.log($scope.waypoint[1]);
         var url = "https://www.google.com/maps/dir/?api=1&origin=Current+Location&waypoints=";
         for(var i = 0, len = $scope.waypoint.length; i < len; i++){

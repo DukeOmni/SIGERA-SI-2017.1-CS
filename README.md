@@ -5,6 +5,7 @@ Esse é um projeto prático acadêmico para a disciplina de Construção de Soft
 
 Observações: 
 - Para rodar o projeto no *google chrome* o index.html deve ser executado em um servidor do apache.
+- Para testar de um dispositivo/máquina diferente do localhost deve-se usar conexão https, por exemplo https://localhost...
 
 
 Últimos recursos adicionados:

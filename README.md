@@ -11,3 +11,6 @@ Observações:
 - Geração de rotas usando o menor caminho possível.
 - Detecção de qual tipo de dispositivo está sendo usado e redirecionamento para página do google maps caso seja mobile.
 
+Futuras atualizações:
+- Refatoração do front end.
+- Integração com back end usando node.js.

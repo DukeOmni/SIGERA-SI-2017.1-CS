@@ -8,7 +8,7 @@ angular.module("siger").controller("mapaRotaCtrl", function($scope, GeoCoder, Go
     {nome: "Ana", endereco: "Aparecida de Goiânia, Vila Brasília", instituicao: "Exemplo1", telefone: "Exemplo1"}
     ]; //Carregaria do backend o array de alunosRota para poder calcular a rota;
 
-    $scope.destino = "Goiânia, UFG campus samambaia"; //Destino pode ser carregado do backend
+    $scope.destino = "Goiânia, UFG campus samambaia, Reitoria UFG"; //Destino pode ser carregado do backend
     $scope.waypoint = []; //Inicialização do array dos pontos de parada da rota
     $scope.googleMapUrl = "https://maps.google.com/maps/api/js"; //Definição da url da API do google para usar posteriormente no lazy-load do mapa definido na tag html da view
     $scope.pauseLoading = true; //Variável que "trava" o carregamento da div que contém o mapa

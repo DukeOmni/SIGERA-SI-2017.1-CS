@@ -12,7 +12,7 @@ angular.module("siger").controller("mapaRotaCtrl", function($scope, GeoCoder, Go
     $scope.waypoint = []; //Inicialização do array dos pontos de parada da rota
     $scope.googleMapUrl = "https://maps.google.com/maps/api/js"; //Definição da url da API do google para usar posteriormente no lazy-load do mapa definido na tag html da view
     $scope.pauseLoading = true; //Variável que "trava" o carregamento da div que contém o mapa
-
+    $scope.travelMode = "DRIVING";
     //Substitui o tempo de carregamento pelo tempo de processamento dos dados iniciais da rota :)
 
     calcRota(); //Pega os endereços dos alunos que irão na rota
@@ -28,8 +28,8 @@ angular.module("siger").controller("mapaRotaCtrl", function($scope, GeoCoder, Go
     };
 
     $scope.mapInit = function(map){  //Função que executa após a inicialização do mapa
-        reorganizarRota($scope.waypoint); //Nesse ponto da execução, $scope.waypoint já é um array adequado para a execução de reorganizarRota    
-    };
+        reorganizarRota($scope.waypoint);//Nesse ponto da execução, $scope.waypoint já é um array adequado para a execução de reorganizarRota      
+};
 
     function traduzRota(address, index){ //Função que traduz os enderenços em string para coordenada
             var addressAux = address[index];
@@ -72,6 +72,9 @@ angular.module("siger").controller("mapaRotaCtrl", function($scope, GeoCoder, Go
                     };
                     auxArray.splice(menorAux, 1);
                 };
+                if(detectmob()){ //Testa se é dispositivo mobile após reorganizar a rota
+                chamarGoogleMapSite();
+                };
             });
         });
     };
@@ -91,8 +94,7 @@ angular.module("siger").controller("mapaRotaCtrl", function($scope, GeoCoder, Go
         return distancia;
     };
 
-    $scope.chamarGoogleMapSite = function (){ //Função que redireciona para o site do google maps
-        console.log($scope.waypoint[1]);
+   var chamarGoogleMapSite = function (){ //Função que redireciona para o site do google maps
         var url = "https://www.google.com/maps/dir/?api=1&origin=Current+Location&waypoints=";
         for(var i = 0, len = $scope.waypoint.length; i < len; i++){
             if(i == $scope.waypoint.length - 1){
@@ -102,7 +104,23 @@ angular.module("siger").controller("mapaRotaCtrl", function($scope, GeoCoder, Go
             };
         };
         $scope.destino = $scope.destino.split(' ').join('+');
-        url = url + "&destination=" + $scope.destino;
+        url = url + "&destination=" + $scope.destino + "&travelmode=" + $scope.travelMode;
         location.href = url;
     };
-});
+
+    function detectmob() { //Função que testa se a aplicação está rodando em algum dispositivo mobile
+        if( navigator.userAgent.match(/Android/i)
+        || navigator.userAgent.match(/webOS/i)
+        || navigator.userAgent.match(/iPhone/i)
+        || navigator.userAgent.match(/iPad/i)
+        || navigator.userAgent.match(/iPod/i)
+        || navigator.userAgent.match(/BlackBerry/i)
+        || navigator.userAgent.match(/Windows Phone/i)
+        ){
+            return true;
+        }
+            else {
+                return false;
+            }
+        }
+    });

@@ -4,12 +4,12 @@
         <ng-map id="mapa" center = "current-location" map-initialized = "mapInit(map)" default-style="false" zoom = "{{zoom}}">
             <directions
                     draggable = "true"
-                    travel-mode = "DRIVING"
+                    travel-mode = "{{travelMode}}"
                     origin = "current-location"
                     waypoints = "{{waypoint}}"
                     destination = "{{destino}}"
                 ></directions> 
         </ng-map>
     </div>
-    <button ng-click="chamarGoogleMapSite()">Testar chamada ao site do google maps </button>
+    <!--<button ng-click="chamarGoogleMapSite()">Testar chamada ao site do google maps </button>-->
 </div>

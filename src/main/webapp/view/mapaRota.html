@@ -1,15 +1,17 @@
 <div  ng-if = "!pauseLoading">
-    <div map-lazy-load = "https://maps.google.com/maps/api/js"
+    <div  id ="containerMapa" map-lazy-load = "https://maps.google.com/maps/api/js"
         map-lazy-load-params = "{{googleMapsUrl}}">
         <ng-map id="mapa" center = "current-location" map-initialized = "mapInit(map)" default-style="false" zoom = "{{zoom}}">
             <directions
                     draggable = "true"
                     travel-mode = "{{travelMode}}"
+                    panel="directions-panel"
                     origin = "current-location"
                     waypoints = "{{waypoint}}"
                     destination = "{{destino}}"
                 ></directions> 
         </ng-map>
     </div>
-    <!--<button ng-click="chamarGoogleMapSite()">Testar chamada ao site do google maps </button>-->
+    <div id="directions-panel">
+    </div>
 </div>

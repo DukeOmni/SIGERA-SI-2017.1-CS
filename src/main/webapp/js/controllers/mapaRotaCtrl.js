@@ -90,4 +90,19 @@ angular.module("siger").controller("mapaRotaCtrl", function($scope, GeoCoder, Go
         });
         return distancia;
     };
+
+    $scope.chamarGoogleMapSite = function (){
+        console.log($scope.waypoint[1]);
+        var url = "https://www.google.com/maps/dir/?api=1&origin=Current+Location&waypoints=";
+        for(var i = 0, len = $scope.waypoint.length; i < len; i++){
+            if(i == $scope.waypoint.length - 1){
+                url = url + $scope.waypoint[i].location.lat() + "," + $scope.waypoint[i].location.lng();
+            }else{
+                url = url + $scope.waypoint[i].location.lat() + "," + $scope.waypoint[i].location.lng() + "|";
+            };
+        };
+        $scope.destino = $scope.destino.split(' ').join('+');
+        url = url + "&destination=" + $scope.destino;
+        location.href = url;
+    };
 });

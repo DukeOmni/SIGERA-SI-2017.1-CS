@@ -116,7 +116,7 @@ body {
 
 ng-map#mapa {
     display: block;
-    height: 612px;
+    height: 60%;
 }
 a, a:link, a:visited, a:hover, a:active {
     text-decoration: none;

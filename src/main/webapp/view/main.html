@@ -1,4 +1,4 @@
-<div class="containerBotao">
+<div class="containerBotao" ng-if="detectMobile()">
     <a href="#cadastrarAluno">
         <div class="botaoHome">Cadastrar Aluno</div>
     </a>
@@ -10,4 +10,15 @@
     <a href="#mapaRota">
         <div class="botaoHome">Mapa da rota</div>
     </a>
+</div>
+
+<div ng-if="!detectMobile()" style="height:85%;"> <!-- Versão desktop -->
+    <div style="background-color: white;float: left;width: 20%;height: 100%;margin-top: 5px;">Menu lateral com:<br>
+        Cadastrar alunos<br>
+        Ver alunos<br>
+        Ver rotas<br>
+        Início<br>
+        Sobre nós<br>
+    </div>
+    <div style="background-color: white;float: left;margin-top: 5px;margin-left: 5px;height: 100%;width: 79%;">Conteúdo da página</div>
 </div>

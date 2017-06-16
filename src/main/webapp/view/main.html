@@ -1,24 +1,28 @@
-<div class="containerBotao" ng-if="detectMobile()">
+<div class="container-botao" ng-if="detectMobile()">
     <a href="#cadastrarAluno">
-        <div class="botaoHome">Cadastrar Aluno</div>
+        <div class="botao-home">Cadastrar Aluno</div>
     </a>
 
     <a href="#gerarRota">
-        <div class="botaoHome">Gerar Rota</div>
+        <div class="botao-home">Gerar Rota</div>
     </a>
 
     <a href="#mapaRota">
-        <div class="botaoHome">Mapa da rota</div>
+        <div class="botao-home">Mapa da rota</div>
     </a>
 </div>
 
 <div ng-if="!detectMobile()" style="height:85%;"> <!-- Versão desktop -->
-    <div style="background-color: white;float: left;width: 20%;height: 100%;margin-top: 5px;">Menu lateral com:<br>
-        Cadastrar alunos<br>
-        Ver alunos<br>
-        Ver rotas<br>
-        Início<br>
-        Sobre nós<br>
+    <div class="container-menu">
+        <ul class="botao-menu">
+            <li style="background-color: #c48366; color: #FFF;">Menu</li>
+            <a href="#/"><li>Início</li></a>
+            <a href="#cadastrarAluno"><li>Cadastrar alunos</li></a>
+            <a href="#/"><li>Ver alunos</li></a>
+            <a href="#gerarRota"><li>Gerar rota</li></a>
+            <a href="#/"><li>Ver rotas</li></a>
+            <a href="#/"><li>Sobre nós</li></a>
+        </ul>
     </div>
-    <div style="background-color: white;float: left;margin-top: 5px;margin-left: 5px;height: 100%;width: 79%;">Conteúdo da página</div>
+    <div class="container-desktop"></div>
 </div>

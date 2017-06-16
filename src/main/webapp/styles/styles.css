@@ -4,16 +4,61 @@ html {
     width: 100%;
 }
 
+body {
+    height: 100%;
+    margin: 0;
+    background: #c48366;
+    background: -webkit-linear-gradient(#B0AD9A, #B7A889, #B99D78, #AE785E, #A1655A, #533A40);
+    background: -o-linear-gradient(#B0AD9A, #B7A889, #B99D78, #AE785E, #A1655A, #533A40);
+    background: -moz-linear-gradient(#B0AD9A, #B7A889, #B99D78, #AE785E, #A1655A, #533A40);
+    background: linear-gradient(#B0AD9A, #B7A889, #B99D78, #AE785E, #A1655A, #533A40);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+h1 {
+    margin: 0 auto;
+    font-size: 30pt;
+    text-transform: uppercase;
+    text-align: center;
+    color: #c48366;
+    background-color: #FFFFFF;
+}
+
+h2 {
+    margin: 0 auto;
+    text-transform: uppercase;
+    text-align: center;
+    color: #c48366;
+    font-size: 20pt;
+    padding-top: 20px;
+    padding-bottom: 15px;
+}
+
+a, a:link, a:visited, a:hover, a:active {
+    text-decoration: none;
+    color: inherit;
+}
+
 .container {
     background: #FFFFFF;
     margin: 20px;
 }
 
-.containerTopo {
+.container-desktop {
+    background-color: white;
+    float: left;
+    margin-top: 5px;
+    margin-left: 5px;
+    height: 100vh;
+    width: 79%;
+}
+
+.container-topo {
     margin: 0 auto;
 }
 
-.containerBotao {
+.container-botao {
     position: absolute;
     top: 25%;
     left: 50%;
@@ -21,7 +66,7 @@ html {
     width: 80%;
 }
 
-.botaoHome {
+.botao-home {
     background: #FFFFFF;
     color: #c48366;
     text-align: center;
@@ -66,7 +111,6 @@ html {
     margin-top: 10px;
     width: 100%;
     border: 1px solid #c48366;
-    border-radius: 5px;
 }
 
 .formulario-botao-container {
@@ -79,43 +123,13 @@ html {
     color: #c48366;
 }
 
-.tabela-coluna-confirmacao input[type="checkbox"]{
+.tabela-coluna-input input[type="checkbox"] {
     width: 50px;
     height: 50px;
 }
 
-.tabela-coluna-nome{
+.tabela-coluna-nome {
     padding-left: 20px;
-}
-
-h1 {
-    margin: 0 auto;
-    font-size: 30pt;
-    text-transform: uppercase;
-    text-align: center;
-    color: #c48366;
-    background-color: #FFFFFF;
-}
-
-h2 {
-    margin: 0 auto;
-    text-transform: uppercase;
-    text-align: center;
-    color: #c48366;
-    font-size: 20pt;
-    padding-top: 20px;
-    padding-bottom: 15px;
-}
-
-body {
-    margin: 0;
-    background: #c48366;
-    background: -webkit-linear-gradient(#B0AD9A, #B7A889, #B99D78, #AE785E, #A1655A, #533A40);
-    background: -o-linear-gradient(#B0AD9A, #B7A889, #B99D78, #AE785E, #A1655A, #533A40);
-    background: -moz-linear-gradient(#B0AD9A, #B7A889, #B99D78, #AE785E, #A1655A, #533A40);
-    background: linear-gradient(#B0AD9A, #B7A889, #B99D78, #AE785E, #A1655A, #533A40);
-    background-repeat: no-repeat;
-    background-attachment: fixed;
 }
 
 ng-map#mapa {
@@ -124,24 +138,52 @@ ng-map#mapa {
     width: 100%;
     float: left;
 }
-a, a:link, a:visited, a:hover, a:active {
-    text-decoration: none;
-    color: inherit;
-}
 
-#containerMapa {
-    width: 68%; 
-    float:left;
+#container-mapa {
+    width: 68%;
+    float: left;
     height: 100%;
     margin-left: 20px;
 }
 
-#directions-panel{
-    width: 28%; 
-    height: 600px; 
-    overflow: auto; 
-    padding: 0px 5px; 
-    background-color: white; 
-    margin-left: 10px; 
+#directions-panel {
+    width: 28%;
+    height: 600px;
+    overflow: auto;
+    padding: 0px 5px;
+    background-color: white;
+    margin-left: 10px;
     margin-top: 10px;
+}
+
+.container-menu {
+    background-color: #FFFFFF;
+    float: left;
+    width: 20%;
+    height: 100vh;
+    margin-top: 5px;
+    border: 10px solid #c48366;
+    border-top: 0;
+    border-bottom: 0;
+    border-right: 0;
+}
+
+.botao-menu {
+    display: inline;
+    list-style-type: none;
+    color: #c48366;
+    text-transform: uppercase;
+    margin: 0;
+    padding: 0;
+}
+
+.botao-menu li {
+    height: 50px;
+    padding-left: 50px;
+    padding-top: 10px;
+}
+
+.botao-menu li:hover {
+    background-color: #c48366;
+    color: #FFFFFF;
 }

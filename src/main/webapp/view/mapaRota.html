@@ -1,6 +1,6 @@
 <div  ng-if = "!pauseLoading">
-    <div  id ="containerMapa" map-lazy-load = "https://maps.google.com/maps/api/js"
-        map-lazy-load-params = "{{googleMapsUrl}}">
+    <div id ="container-mapa" map-lazy-load = "https://maps.google.com/maps/api/js"
+         map-lazy-load-params = "{{googleMapsUrl}}">
         <ng-map id="mapa" center = "current-location" map-initialized = "mapInit(map)" default-style="false" zoom = "{{zoom}}">
             <directions
                     draggable = "true"

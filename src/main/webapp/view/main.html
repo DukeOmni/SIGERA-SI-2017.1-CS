@@ -12,17 +12,50 @@
     </a>
 </div>
 
-<div ng-if="!detectMobile()" style="height:85%;"> <!-- Versão desktop -->
+<div ng-if="!detectMobile()"> <!-- Versão desktop -->
     <div class="container-menu">
         <ul class="botao-menu">
             <li style="background-color: #c48366; color: #FFF;">Menu</li>
-            <a href="#/"><li>Início</li></a>
-            <a href="#cadastrarAluno"><li>Cadastrar alunos</li></a>
-            <a href="#/"><li>Ver alunos</li></a>
-            <a href="#gerarRota"><li>Gerar rota</li></a>
-            <a href="#/"><li>Ver rotas</li></a>
-            <a href="#/"><li>Sobre nós</li></a>
+            <a href="#/">
+                <li>Início</li>
+            </a>
+            <a href="#cadastrarAluno">
+                <li>Cadastrar alunos</li>
+            </a>
+            <a href="#/">
+                <li>Ver alunos</li>
+            </a>
+            <a href="#gerarRota">
+                <li>Gerar rota</li>
+            </a>
+            <a href="#/">
+                <li>Ver rotas</li>
+            </a>
+            <a href="#/">
+                <li>Sobre nós</li>
+            </a>
         </ul>
     </div>
-    <div class="container-desktop"></div>
+    <div class="container-desktop">
+        <div style="margin-left: 30px; color: #5e5e5e">
+            <h3>SIGERA-SI-2017.1-CS</h3>
+            <span>Descrição: Esse é um projeto prático acadêmico para a disciplina de Construção de Software. Os envolvidos são os integrantes do grupo do projeto. A sigla SIGERA é de Sistema de Geração de Rotas Automatizadas e o propósito desse sistema é ser uma ferramenta que auxilia motoristas que trabalham com transporte de pessoas.
+                <p>Observações:</p>
+                <ul>
+                    <li>Para rodar o projeto no google chrome o index.html deve ser executado em um servidor do apache.</li>
+                    <li>Para testar de um dispositivo/máquina diferente do localhost deve-se usar conexão https, por exemplo https://localhost...</li>
+                </ul>
+                <p>Últimos recursos adicionados:</p>
+                <ul>
+                    <li>Geração de rotas usando o menor caminho possível.</li>
+                    <li>Detecção de qual tipo de dispositivo está sendo usado e redirecionamento para página do google maps caso seja mobile.</li>
+                </ul>
+                <p>Futuras atualizações:</p>
+                <ul>
+                    <li>Refatoração do front end.</li>
+                    <li>Integração com back end usando node.js.</li>
+                </ul>
+            </span>
+        </div>
+    </div>
 </div>

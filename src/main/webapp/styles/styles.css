@@ -197,8 +197,14 @@ ng-map#mapa {
 .active {
     background-color: #c48366; color: #FFF;
 }
+#headerMobile{
+    display: none;
+}
 @media screen and (max-width: 1024px){
     .formulario{
         width:95%;
+    }
+    #headerMobile{
+        display: block;
     }
 }

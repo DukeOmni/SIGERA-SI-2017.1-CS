@@ -1,6 +1,6 @@
 <div class="formulario">
-        <div id="container-mapa" map-lazy-load="https://maps.google.com/maps/api/js" map-lazy-load-params="{{googleMapsUrl}}" style="float: right;">
-            <ng-map id="mapa" center="{{origin}}" map-initialized="mapInit(map)" default-style="false" zoom="{{zoom}}">
+        <div id="container-mapa" style="float: right;">
+            <ng-map id="mapa" center="{{origin}}"  default-style="false">
                 <directions draggable="true" 
                             travel-mode="{{travelMode}}"  
                             origin="{{origin}}" 
@@ -9,7 +9,9 @@
                 </directions>
             </ng-map>
         </div>
-        <div ng-repeat= "rota in rotasCompletas" style="float: left;">
-            <a ng-click ="mostrarRota(rota)"><p>{{rota.data | date: "dd/mm/yy, hh:mm"}}</p></a>
-        </div>
+        <table class="tabela" style="float: left;">
+            <tr ng-repeat= "rota in rotasCompletas">
+            <td class="tabela-coluna-nome"><a ng-click ="mostrarRota(rota)">{{rota.data | date: "dd/mm/yy, hh:mm"}}</a></td>
+            </tr>
+        </table>
 </div>

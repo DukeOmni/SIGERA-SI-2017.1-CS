@@ -1,12 +1,6 @@
-angular.module("siger").controller("mapaRotaCtrl", function($scope, GeoCoder, GoogleDistanceAPI, NavigatorGeolocation){
+angular.module("siger").controller("mapaRotaCtrl", function($scope,$rootScope ,GeoCoder, GoogleDistanceAPI, NavigatorGeolocation){
     
-    $scope.alunos = [{nome: "Alex", endereco: "Aparecida de Goiânia, Rua 512", instituicao: "UFG", telefone: "Exemplo1"},
-    {nome: "Joao", endereco: "Goiânia, Praça Cívica", instituicao: "Exemplo2", telefone: "Exemplo2"},
-    {nome: "Maria", endereco: "Goiânia, Setor Bueno", instituicao: "Exemplo1", telefone: "Exemplo1"},
-    {nome: "Caio", endereco: "Goiânia, Setor Universitário", instituicao: "Exemplo1", telefone: "Exemplo1"},
-    {nome: "Vitor", endereco: "Aparecida de Goiânia, Cidade empresarial", instituicao: "Exemplo1", telefone: "Exemplo1"},
-    {nome: "Ana", endereco: "Aparecida de Goiânia, Vila Brasília", instituicao: "Exemplo1", telefone: "Exemplo1"}
-    ]; //Carregaria do backend o array de alunosRota para poder calcular a rota;
+    $scope.alunos = $rootScope.alunosDaRota; //Carregaria do backend o array de alunosRota para poder calcular a rota;
 
     $scope.destino = "Goiânia, UFG campus samambaia, Reitoria UFG"; //Destino pode ser carregado do backend
     $scope.waypoint = []; //Inicialização do array dos pontos de parada da rota
@@ -73,6 +67,7 @@ angular.module("siger").controller("mapaRotaCtrl", function($scope, GeoCoder, Go
                     auxArray.splice(menorAux, 1);
                 };
                 $scope.rotaCompleta = {origem: currentPosition, waypoint: $scope.waypoint, destino: $scope.destino, data: new Date()}; //Essa linha serve para armazenar a rota em um objeto e mandar para o banco
+                $rootScope.rotasFeitas.push($scope.rotaCompleta);
                 console.log(JSON.stringify($scope.rotaCompleta));
                 if(detectmob()){ //Testa se é dispositivo mobile após reorganizar a rota
                 chamarGoogleMapSite();

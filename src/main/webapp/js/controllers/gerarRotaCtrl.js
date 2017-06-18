@@ -1,5 +1,4 @@
-angular.module("siger").controller("gerarRotaCtrl", function($scope){ //Incluir o serviço alunosAPI
-    
+angular.module("siger").controller("gerarRotaCtrl", function($scope,$state){ //Incluir o serviço alunosAPI
     $scope.alunos = [{nome: "Alex", endereco: "Aparecida de Goiânia, Rua 512", instituicao: "UFG", telefone: "Exemplo1"},
     {nome: "Joao", endereco: "Goiânia, Praça Cívica", instituicao: "Exemplo2", telefone: "Exemplo2"},
     {nome: "Maria", endereco: "Goiânia, Setor Bueno", instituicao: "Exemplo1", telefone: "Exemplo1"},

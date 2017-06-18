@@ -1,0 +1,18 @@
+<form class="formulario">
+    <table class="tabela" style="float: left;">
+        <tr ng-repeat="aluno in alunos">
+            <td class="tabela-coluna-nome" ng-click="mostrarAluno(aluno)">{{aluno.nome}}</td> 
+        </tr>
+    </table>
+    <div ng-if="alunoSelecionado" style="float: left; margin-left: 20px;">
+        Nome: {{alunoSelecionado.nome}} <br>
+        Endereço: {{alunoSelecionado.endereco}} <br>
+        Instituição: {{alunoSelecionado.instituicao}} <br>
+        Telefone: {{alunoSelecionado.telefone}} <br>
+        <a>
+            <div ng-click="fecharAluno()" style="background-color:azure">
+                Fechar
+            </div>
+        </a>
+    </div>
+</form>

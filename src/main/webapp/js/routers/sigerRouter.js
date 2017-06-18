@@ -1,19 +1,34 @@
-angular.module("siger").config(function($routeProvider){
-    $routeProvider.when("/", {
+angular.module("siger").config(function($stateProvider, $urlRouterProvider){
+    $stateProvider.state("home", {
+        url: "/main",
         templateUrl: "view/main.html",
         controller: "mainCtrl"
     }).
-    when("/cadastrarAluno", {
+    state("cadastrarAluno", {
+        url: "/cadastrarAluno",
         templateUrl: "view/cadastrar-aluno.html",
-        controller: "cadastrarAlunoCtrl"
-
+        controller: "cadastrarAlunoCtrl",
     }). 
-    when("/gerarRota", {
+    state("gerarRota", {
+        url: "/gerarRota",
         templateUrl: "view/gerar-rota.html",
-        controller: "gerarRotaCtrl" 
+        controller: "gerarRotaCtrl" ,
     }).
-    when("/mapaRota", {
+    state("mapaRota", {
+        url: "/mapaRota",
         templateUrl: "view/mapaRota.html",
         controller: "mapaRotaCtrl"
+    }).
+    state("verAlunos", {
+        url: "/verAlunos",
+        templateUrl: "view/verAlunos.html",
+        controller: "sigerCtrl"
+    }).
+    state("sobreNos", {
+        url: "/sobreNos",
+        templateUrl: "view/sobreNos.html",
+        controller: "sigerCtrl"
     });
+
+    $urlRouterProvider.otherwise('/home');
 });

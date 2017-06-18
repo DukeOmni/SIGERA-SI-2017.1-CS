@@ -6,8 +6,13 @@ angular.module("siger").controller("sigerCtrl", function($scope, $location){
     {nome: "Vitor", endereco: "Aparecida de Goiânia, Cidade empresarial", instituicao: "Exemplo1", telefone: "Exemplo1"},
     {nome: "Ana", endereco: "Aparecida de Goiânia, Vila Brasília", instituicao: "Exemplo1", telefone: "Exemplo1"}
     ];
-    
-    //Esse módulo pode ter utilidade no futuro mas por enquanto ele não rodará no projeto
+    $scope.alunoSelecionado;
+    $scope.mostrarAluno = function(aluno){
+        $scope.alunoSelecionado = aluno;
+    };
+    $scope.fecharAluno = function(){
+        $scope.alunoSelecionado = false;
+    };
 });
 
 

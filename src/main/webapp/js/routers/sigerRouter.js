@@ -28,6 +28,11 @@ angular.module("siger").config(function($stateProvider, $urlRouterProvider){
         url: "/sobreNos",
         templateUrl: "view/sobreNos.html",
         controller: "sigerCtrl"
+    }).
+    state("verRotas", {
+        url: "/verRotas",
+        templateUrl: "view/verRotas.html",
+        controller: "verRotasCtrl"
     });
 
     $urlRouterProvider.otherwise('/home');

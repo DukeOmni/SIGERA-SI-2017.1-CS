@@ -72,6 +72,8 @@ angular.module("siger").controller("mapaRotaCtrl", function($scope, GeoCoder, Go
                     };
                     auxArray.splice(menorAux, 1);
                 };
+                $scope.rotaCompleta = {origem: currentPosition, waypoint: $scope.waypoint, destino: $scope.destino, data: new Date()}; //Essa linha serve para armazenar a rota em um objeto e mandar para o banco
+                console.log(JSON.stringify($scope.rotaCompleta));
                 if(detectmob()){ //Testa se é dispositivo mobile após reorganizar a rota
                 chamarGoogleMapSite();
                 };

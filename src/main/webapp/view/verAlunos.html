@@ -1,9 +1,9 @@
-<form class="formulario">
-    <table class="tabela" style="float: left;">
-        <tr ng-repeat="aluno in alunos">
-            <td class="tabela-coluna-nome" ng-click="mostrarAluno(aluno)">{{aluno.nome}}</td> 
-        </tr>
-    </table>
+<div class="formulario">
+    <div class="tabela" style="float: left;">
+        <div ng-repeat="aluno in alunos">
+            <p ng-click="mostrarAluno(aluno)">{{aluno.nome}}</p> 
+        </div>
+    </div>
     <div ng-if="alunoSelecionado" style="float: left; margin-left: 20px;">
         Nome: {{alunoSelecionado.nome}} <br>
         Endereço: {{alunoSelecionado.endereco}} <br>
@@ -15,4 +15,4 @@
             </div>
         </a>
     </div>
-</form>
+</div>

@@ -14,6 +14,7 @@
     <script src="js/controllers/gerarRotaCtrl.js"></script>
     <script src="js/controllers/cadastrarAlunoCtrl.js"></script>
     <script src="js/controllers/mapaRotaCtrl.js"></script>
+    <script src="js/controllers/verRotasCtrl.js"></script>
     <script src="js/routers/sigerRouter.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -43,8 +44,8 @@
             <a ui-sref="gerarRota">
                 <li ng-class="{active: $state.current.name == 'gerarRota'}">Gerar rota</li>
             </a>
-            <a ui-sref="">
-                <li>Ver rotas</li>
+            <a ui-sref="verRotas">
+                <li ng-class="{active: $state.current.name == 'verRotas'}">Ver rotas</li>
             </a>
             <a ui-sref="sobreNos">
                 <li ng-class="{active: $state.current.name ==  'sobreNos'}">Sobre nós</li>

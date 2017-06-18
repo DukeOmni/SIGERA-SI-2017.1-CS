@@ -1,39 +1,51 @@
 angular.module("siger").config(function($stateProvider, $urlRouterProvider){
-    $stateProvider.state("home", {
-        url: "/main",
-        templateUrl: "view/main.html",
-        controller: "mainCtrl"
+    $stateProvider.state("dashboard", {
+        templateUrl: "view/dashboard.html",
+        url: "/dashboard",
+        controller: "dashboardCtrl",
+        resolve: {
+            "check": function($state, $rootScope){
+                if(!$rootScope.logado){
+                    $state.go("login");
+                }
+            }
+        }
     }).
-    state("cadastrarAluno", {
+    state("dashboard.cadastrarAluno", {
         url: "/cadastrarAluno",
         templateUrl: "view/cadastrar-aluno.html",
         controller: "cadastrarAlunoCtrl",
     }). 
-    state("gerarRota", {
+    state("dashboard.gerarRota", {
         url: "/gerarRota",
         templateUrl: "view/gerar-rota.html",
         controller: "gerarRotaCtrl" ,
     }).
-    state("mapaRota", {
+    state("dashboard.mapaRota", {
         url: "/mapaRota",
         templateUrl: "view/mapaRota.html",
         controller: "mapaRotaCtrl"
     }).
-    state("verAlunos", {
+    state("dashboard.verAlunos", {
         url: "/verAlunos",
         templateUrl: "view/verAlunos.html",
         controller: "sigerCtrl"
     }).
-    state("sobreNos", {
+    state("dashboard.sobreNos", {
         url: "/sobreNos",
         templateUrl: "view/sobreNos.html",
         controller: "sigerCtrl"
     }).
-    state("verRotas", {
+    state("dashboard.verRotas", {
         url: "/verRotas",
         templateUrl: "view/verRotas.html",
         controller: "verRotasCtrl"
+    }).
+    state("login", {
+        url: "/login",
+        templateUrl: "view/login.html",
+        controller: "loginCtrl"
     });
 
-    $urlRouterProvider.otherwise('/home');
+    $urlRouterProvider.otherwise('/login');
 });

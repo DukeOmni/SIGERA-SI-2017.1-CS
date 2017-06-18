@@ -1,5 +1,4 @@
-angular.module("siger").controller("mainCtrl", function ($scope, $state) {
-    //Código que controla a view main.html
+angular.module("siger").controller("dashboardCtrl", function ($scope, $state) {
     $scope.detectMobile = function(){ //Função que testa se a aplicação está rodando em algum dispositivo mobile
         if (navigator.userAgent.match(/Android/i)
             || navigator.userAgent.match(/webOS/i)

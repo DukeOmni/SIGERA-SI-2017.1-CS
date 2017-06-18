@@ -19,6 +19,6 @@ angular.module("siger").controller("gerarRotaCtrl", function($scope,$state){ //I
         $scope.alunosRota = alunos.filter(function(aluno){
             if(aluno.selecionado) return aluno;
         }); // Após essa linha mandaríamos o array alunosRota para o backend para carregar posteriormente na próxima tela.
-        location.href = "#mapaRota"; //Move para a página do mapa
+        $state.go("dashboard.mapaRota"); //Move para a página do mapa
     };
 });

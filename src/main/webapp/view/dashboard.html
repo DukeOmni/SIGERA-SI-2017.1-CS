@@ -1,0 +1,39 @@
+<div ng-if="!detectMobile()"> <!-- Versão desktop -->
+    <div class="container-menu">
+        <ul class="botao-menu">
+            <a ui-sref="dashboard">
+                <li ng-class="{active: $state.current.name == 'dashboard'}">Início</li>
+            </a>
+            <a ui-sref="dashboard.cadastrarAluno">
+                <li ng-class="{active: $state.current.name == 'dashboard.cadastrarAluno'}">Cadastrar alunos</li>
+            </a>
+            <a ui-sref="dashboard.verAlunos">
+                <li ng-class="{active: $state.current.name == 'dashboard.verAlunos'}">Ver alunos</li>
+            </a>
+            <a ui-sref="dashboard.gerarRota">
+                <li ng-class="{active: $state.current.name == 'dashboard.gerarRota'}">Gerar rota</li>
+            </a>
+            <a ui-sref="dashboard.verRotas">
+                <li ng-class="{active: $state.current.name == 'dashboard.verRotas'}">Ver rotas</li>
+            </a>
+            <a ui-sref="dashboard.sobreNos">
+                <li ng-class="{active: $state.current.name ==  'dashboard.sobreNos'}">Sobre nós</li>
+            </a>
+        </ul>
+    </div>
+<div ui-view></div>
+</div>
+<div class="container-botao" ng-if="detectMobile() && $state.current.name == 'dashboard'">
+    <a ui-sref="dashboard.cadastrarAluno">
+        <div class="botao-home">Cadastrar Aluno</div>
+    </a>
+
+    <a ui-sref="dashboard.gerarRota">
+        <div class="botao-home">Gerar Rota</div>
+    </a>
+    <a ui-sref="dashboard.mapaRota">
+        <div class="botao-home">Mapa da rota</div>
+    </a>
+</div>
+<div ng-if="detectMobile()" ui-view></div>
+

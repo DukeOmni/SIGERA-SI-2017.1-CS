@@ -10,7 +10,8 @@
     <script src="js/controllers/sigerCtrl.js"></script>
     <!--<script src="js/value/configValue.js"></script>
     <script src="js/services/alunosAPIService.js"></script>-->
-    <script src="js/controllers/mainCtrl.js"></script>
+    <script src="js/controllers/dashboardCtrl.js"></script>
+    <script src="js/controllers/loginCtrl.js"></script>
     <script src="js/controllers/gerarRotaCtrl.js"></script>
     <script src="js/controllers/cadastrarAlunoCtrl.js"></script>
     <script src="js/controllers/mapaRotaCtrl.js"></script>
@@ -23,37 +24,9 @@
 </head>
 <div class="container-topo">
     <div class="contentTopo">
-        <a ui-sref="home">
+        <a ui-sref="dashboard">
             <h1> SIGER</h1>
         </a>
-    </div>
-</div>
-<div ng-controller="mainCtrl">
-    <div ng-if="!detectMobile()"> <!-- Versão desktop -->
-    <div class="container-menu">
-        <ul class="botao-menu">
-            <a ui-sref="home">
-                <li ng-class="{active: $state.current.name == 'home'}">Início</li>
-            </a>
-            <a ui-sref="cadastrarAluno">
-                <li ng-class="{active: $state.current.name == 'cadastrarAluno'}">Cadastrar alunos</li>
-            </a>
-            <a ui-sref="verAlunos">
-                <li ng-class="{active: $state.current.name == 'verAlunos'}">Ver alunos</li>
-            </a>
-            <a ui-sref="gerarRota">
-                <li ng-class="{active: $state.current.name == 'gerarRota'}">Gerar rota</li>
-            </a>
-            <a ui-sref="verRotas">
-                <li ng-class="{active: $state.current.name == 'verRotas'}">Ver rotas</li>
-            </a>
-            <a ui-sref="sobreNos">
-                <li ng-class="{active: $state.current.name ==  'sobreNos'}">Sobre nós</li>
-            </a>
-            <a ui-sref="">
-                <li>Login</li>
-            </a>
-        </ul>
     </div>
 </div>
 <div ui-view></div>

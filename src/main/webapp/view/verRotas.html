@@ -1,5 +1,5 @@
 <div class="formulario">
-        <div id="container-mapa" style="float: right;">
+        <div id="container-mapa" style="float: right;" ng-if="rotasCompletas.length > 0">
             <ng-map id="mapa" center="{{origin}}"  default-style="false">
                 <directions draggable="true" 
                             travel-mode="{{travelMode}}"  
@@ -9,9 +9,12 @@
                 </directions>
             </ng-map>
         </div>
-        <table class="tabela" style="float: left;">
+        <table class="tabela" style="float: left;" ng-if="rotasCompletas.length > 0">
             <tr ng-repeat= "rota in rotasCompletas">
             <td class="tabela-coluna-nome"><a ng-click ="mostrarRota(rota)">{{rota.data | date: "dd/mm/yy, hh:mm"}}</a></td>
             </tr>
         </table>
+        <div ng-if="rotasCompletas.length == 0">
+            <h2>Gere uma rota para visualizar aqui!</h2>
+        </div>
 </div>

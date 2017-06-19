@@ -201,11 +201,14 @@ ng-map#mapa {
 .ver-alunos-tabela{
     border: 0px;
     border-collapse: collapse;
+    float: left;
+    width: 50%;
 }
 
 .ver-alunos{
     color: #c48366;
     padding: 20px;
+    width: 50%;
 }
 
 .ver-alunos:hover{
@@ -218,7 +221,8 @@ ng-map#mapa {
     padding: 20px;
     background-color: #c48366;
     color: #FFFFFF;
-    width: 500px;
+    width: 46%;
+    float: right;
 }
 
 #headerMobile{

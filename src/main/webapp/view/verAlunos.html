@@ -1,12 +1,14 @@
 <div class="container-desktop">
-    <div ng-repeat="aluno in alunos" ng-click="mostrarAluno(aluno)" class="ver-alunos">{{aluno.nome}}</div>
-    <div ng-if="alunoSelecionado" class="aluno-selecionado">
-        Nome: {{alunoSelecionado.nome}} <br>
-        Endereço: {{alunoSelecionado.endereco}} <br>
-        Instituição: {{alunoSelecionado.instituicao}} <br>
-        Telefone: {{alunoSelecionado.telefone}} <br>
-        <a>
-            <div ng-click="fecharAluno()">Fechar</div>
-        </a>
-    </div>
+    <table class="ver-alunos-tabela">
+        <tr ng-repeat="aluno in alunos" ng-click="mostrarAluno(aluno)">
+            <td class="ver-alunos">{{aluno.nome}}</td>
+            <td ng-if="alunoSelecionado" class="aluno-selecionado">
+                Nome: {{alunoSelecionado.nome}} <br>
+                Endereço: {{alunoSelecionado.endereco}} <br>
+                Instituição: {{alunoSelecionado.instituicao}} <br>
+                Telefone: {{alunoSelecionado.telefone}} <br>
+                <a ng-click="fecharAluno()">Fechar</a>
+            </td>
+        </tr>
+    </table>
 </div>

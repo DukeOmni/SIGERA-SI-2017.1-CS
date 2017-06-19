@@ -197,6 +197,28 @@ ng-map#mapa {
 .active {
     background-color: #c48366; color: #FFF;
 }
+
+.ver-alunos{
+    color: #c48366;
+    padding: 20px;
+}
+
+.ver-alunos:hover{
+    background-color: #c48366;
+    color: #FFFFFF;
+}
+
+.aluno-selecionado{
+    padding: 20px;
+    background-color: #c48366;
+    color: #FFFFFF;
+    position: absolute;
+    top: 54px;
+    left: 450px;
+    width: 67%;
+    border: 1px solid #c48366;
+}
+
 #headerMobile{
     display: none;
 }

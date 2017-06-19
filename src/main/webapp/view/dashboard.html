@@ -1,12 +1,10 @@
 <div class="container-topo">
     <div class="contentTopo">
-        <a ui-sref="dashboard">
-            <h1> SIGER</h1>
-        </a>
+        <a href=""><img src="images/menuIcon.png" id="iconeMenu" ng-if="!detectMobile()" ng-click="mudarViewMenu()"></a>
+        <h1><a ui-sref="dashboard"> SIGER</a></h1>
     </div>
 </div>
 <div ng-if="!detectMobile()" style="height: 88vh;"> <!-- Versão desktop -->
-    <div ng-click="mudarViewMenu()">Esconder/Mostrar Menu lateral</div>
     <div class="container-menu animate-if" ng-if="viewMenu">
         <ul class="botao-menu">
             <a ui-sref="dashboard">

@@ -16,11 +16,14 @@ angular.module("siger").controller("dashboardCtrl", function ($scope, $state) {
         }
     }
     $scope.mudarViewMenu = function(){
-        console.log("Entrou na função com view em" + $scope.viewMenu);
+        var id = "#" + $state.current.name.substring(10);
+        console.log(id);
         if($scope.viewMenu == true){
-            $scope.viewMenu = false;    
+            $scope.viewMenu = false;
+            angular.element(document.querySelector(id))[0].style.width = "98%";    
         }else{
             $scope.viewMenu = true;
+            angular.element(document.querySelector(id))[0].style.width = "78%";
         }
     };
 });

@@ -1,4 +1,4 @@
-<div  ng-if = "!pauseLoading">
+<div  ng-if = "!pauseLoading" id="mapaRota" class="container-desktop">
     <div id ="container-mapa" map-lazy-load = "https://maps.google.com/maps/api/js"
          map-lazy-load-params = "{{googleMapsUrl}}">
         <ng-map id="mapa" center = "current-location" map-initialized = "mapInit(map)" default-style="false" zoom = "{{zoom}}">

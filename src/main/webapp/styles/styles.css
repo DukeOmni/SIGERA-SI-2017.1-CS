@@ -51,6 +51,9 @@ a, a:link, a:visited, a:hover, a:active {
     margin-left: 10px;
     height: 100vh;
     width: 78%;
+    position: absolute;
+    right: 10px;
+    transition: width cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
 }
 
 .container-topo {
@@ -103,6 +106,9 @@ a, a:link, a:visited, a:hover, a:active {
     margin-left: 10px;
     margin-top: 5px;
     height: 99vh;
+    position: absolute;
+    right: 10px;
+    transition: width cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
 }
 
 .formulario-grupo {
@@ -153,7 +159,7 @@ ng-map#mapa {
 }
 
 #directions-panel {
-    width: 25%;
+    width: 46%;
     height: 600px;
     overflow: auto;
     padding: 0px 5px;
@@ -173,6 +179,7 @@ ng-map#mapa {
     border-top: 0;
     border-bottom: 0;
     border-right: 0;
+    position: absolute;
 }
 
 .botao-menu {
@@ -229,18 +236,27 @@ ng-map#mapa {
     display: none;
 }
 .animate-if.ng-enter, .animate-if.ng-leave {
-  transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+  transition:left cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
 }
 
 .animate-if.ng-enter,
 .animate-if.ng-leave.ng-leave-active {
-  opacity:0;
+  left:-290px;
 }
 
 .animate-if.ng-leave,
 .animate-if.ng-enter.ng-enter-active {
-  opacity:1;
+  left:0px;
 }
+
+#myLogin{
+    width: 50%;
+    margin-left: 25%;
+    margin-top: 9%;
+    height: 60%;
+    margin-right: 25%;
+}
+
 @media screen and (max-width: 1024px){
     .formulario{
         width:95%;

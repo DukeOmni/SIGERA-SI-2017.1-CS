@@ -1,5 +1,6 @@
-<div ng-if="!detectMobile()"> <!-- Versão desktop -->
-    <div class="container-menu">
+<div ng-if="!detectMobile()" style="height: 88vh;"> <!-- Versão desktop -->
+    <div ng-click="mudarViewMenu()">Esconder/Mostrar Menu lateral</div>
+    <div class="container-menu animate-if" ng-if="viewMenu">
         <ul class="botao-menu">
             <a ui-sref="dashboard">
                 <li ng-class="{active: $state.current.name == 'dashboard'}">Início</li>
@@ -30,9 +31,6 @@
 
     <a ui-sref="dashboard.gerarRota">
         <div class="botao-home">Gerar Rota</div>
-    </a>
-    <a ui-sref="dashboard.mapaRota">
-        <div class="botao-home">Mapa da rota</div>
     </a>
 </div>
 <div ng-if="detectMobile()" ui-view></div>

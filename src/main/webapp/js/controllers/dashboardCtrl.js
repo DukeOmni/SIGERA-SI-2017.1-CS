@@ -1,4 +1,5 @@
 angular.module("siger").controller("dashboardCtrl", function ($scope, $state) {
+    $scope.viewMenu = true;
     $scope.detectMobile = function(){ //Função que testa se a aplicação está rodando em algum dispositivo mobile
         if (navigator.userAgent.match(/Android/i)
             || navigator.userAgent.match(/webOS/i)
@@ -14,4 +15,12 @@ angular.module("siger").controller("dashboardCtrl", function ($scope, $state) {
             return false;
         }
     }
+    $scope.mudarViewMenu = function(){
+        console.log("Entrou na função com view em" + $scope.viewMenu);
+        if($scope.viewMenu == true){
+            $scope.viewMenu = false;    
+        }else{
+            $scope.viewMenu = true;
+        }
+    };
 });

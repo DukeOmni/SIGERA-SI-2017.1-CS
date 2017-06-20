@@ -1,5 +1,15 @@
 <form action="/" id="myLogin" class="formulario">
-    Usuario: <input type="text" name="usuario" id="usuario" ng-model="usuario"><br>
-    Senha: <input type="password" name="senha" id="senha" ng-model="senha"><br>
-    <button class="botao-estilo-2" type="button" ng-click="submit()">Login</button>
+    <div class="container-login">
+        <div class="formulario-grupo">
+            <label>Usuario:</label>
+            <input type="text" name="usuario" id="usuario" class="formulario-input" ng-model="usuario">
+        </div>
+        <div class="formulario-grupo">
+            <label>Senha:</label>
+            <input type="password" name="senha" id="senha" class="formulario-input" ng-model="senha">
+        </div>
+        <div class="formulario-botao-container">
+            <button class="botao-estilo-2" type="button" ng-click="submit()">Login</button>
+        </div>
+    </div>
 </form>

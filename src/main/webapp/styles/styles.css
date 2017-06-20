@@ -304,8 +304,15 @@ ng-map#mapa {
     width: 50%;
     margin-left: 25%;
     margin-top: 10px;
-    height: 91.7%;
+    height: 97%;
     margin-right: 25%;
+}
+
+.container-login{
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%);
 }
 
 #iconeMenu{

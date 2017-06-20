@@ -3,7 +3,7 @@ angular.module("siger").controller("verRotasCtrl", function ($scope, $rootScope)
     $scope.travelMode = "DRIVING";
 
     $scope.mostrarRota = function(rota){
-    if(rota.data != $scope.dataRotaAtual){
+        if (rota.data != $scope.dataRotaAtual) {
         $scope.origin = "" + rota.origem[0];
         $scope.waypoint = [];
         for(var i = 0, len = rota.waypoint.length; i < len; i++){

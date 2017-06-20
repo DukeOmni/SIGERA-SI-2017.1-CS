@@ -2,7 +2,7 @@
     <table class="ver-alunos-tabela" style="float: left; width: 48%"
            ng-if="rotasCompletas.length > 0">
         <tr ng-repeat="rota in rotasCompletas">
-            <td class="ver-alunos"><a ng-click="mostrarRota(rota)">{{rota.data | date: "dd/mm/yy, hh:mm"}}</a></td>
+            <td class="ver-alunos"  ng-click="mostrarRota(rota)"><a>{{rota.data | date: "dd/MM/yy, hh:mm"}}</a></td>
         </tr>
     </table>
     <div id="container-mapa" style="float: right;" ng-if="rotasCompletas.length > 0">

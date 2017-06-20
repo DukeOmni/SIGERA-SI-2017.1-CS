@@ -338,4 +338,17 @@ ng-map#mapa {
     #headerMobile{
         display: block;
     }
+    #myLogin{
+        width: 94%;
+        margin-top: 10px;
+        height: 97%;
+        margin-right: 0px;
+    }
+    .container-login{
+        width: 100%;
+    }
+    .formulario-grupo{
+        margin: 25px 25px 25px 25px;
+    }
+
 }

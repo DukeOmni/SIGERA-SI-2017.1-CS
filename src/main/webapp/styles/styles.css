@@ -54,7 +54,7 @@ a, a:link, a:visited, a:hover, a:active {
     position: absolute;
     right: 10px;
     transition: width cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
-    overflow: hidden;
+    overflow: auto;
     z-index: 1;
 }
 
@@ -215,14 +215,15 @@ ng-map#mapa {
     border: 0px;
     border-collapse: collapse;
     float: left;
-    width: 50%;
+    width: 100%;
     cursor: pointer;
 }
 
 .ver-alunos{
     color: #c48366;
     padding: 20px;
-    width: 50%;
+    width: 100%;
+    transition: 0.4s;
 }
 
 .ver-alunos:hover{
@@ -231,12 +232,18 @@ ng-map#mapa {
     width: 500px;
 }
 
+.ver-alunos.active{
+    background-color: #c48366;
+    color: #FFFFFF;
+}
+
 .aluno-selecionado{
-    padding: 20px;
     background-color: #c48366;
     color: #FFFFFF;
     width: 46%;
-    float: right;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out;
+    max-height: 0;
 }
 
 #headerMobile{

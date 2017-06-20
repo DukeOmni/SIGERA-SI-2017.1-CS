@@ -1,15 +1,15 @@
 angular.module("siger").controller("sigerCtrl", function($scope, $location, $rootScope){
     $scope.alunos = $rootScope.alunosCadastrados;
     $scope.alunoSelecionado;
-    var fecharAluno = function(){
-        $scope.alunoSelecionado = false;
-    };
     $scope.mostrarAluno = function(aluno){
-       if($scope.alunoSelecionado == aluno){
-            fecharAluno();
+        angular.element(document.querySelector("#"+aluno+"Accordion"))[0].classList.toggle("active");
+        var alunoSelecionado = angular.element(document.querySelector("#"+aluno))[0];
+        console.log(alunoSelecionado.style.maxHeight);
+        if(alunoSelecionado.style.maxHeight){
+            alunoSelecionado.style.maxHeight = null;
         }else{
-        $scope.alunoSelecionado = aluno;
-        }
+            alunoSelecionado.style.maxHeight = "200px";
+         }
     };
 });
 

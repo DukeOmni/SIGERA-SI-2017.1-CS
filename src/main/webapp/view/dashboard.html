@@ -4,7 +4,7 @@
         <h1><a ui-sref="dashboard"> SIGER</a></h1>
     </div>
 </div>
-<div ng-if="!detectMobile()" style="height: 88vh;"> <!-- Versão desktop -->
+<div ng-if="!detectMobile()" style="height: 88vh; position: relative;"> <!-- Versão desktop -->
     <div class="container-menu animate-if" ng-if="viewMenu">
         <ul class="botao-menu">
             <a ui-sref="dashboard">
@@ -27,7 +27,7 @@
             </a>
         </ul>
     </div>
-<div ui-view></div>
+<div ui-view class="slide-right"></div>
 </div>
 <div class="container-botao" ng-if="detectMobile() && $state.current.name == 'dashboard'">
     <a ui-sref="dashboard.cadastrarAluno">

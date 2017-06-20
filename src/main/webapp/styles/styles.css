@@ -54,13 +54,8 @@ a, a:link, a:visited, a:hover, a:active {
     position: absolute;
     right: 10px;
     transition: width cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
-    overflow: auto;
-    -webkit-animation: expand 0.5s;
-}
-
-@-webkit-keyframes expand{
-    0%{height:0px}
-    100%{height:91.7%}
+    overflow: hidden;
+    z-index: 1;
 }
 
 .container-topo {
@@ -116,8 +111,8 @@ a, a:link, a:visited, a:hover, a:active {
     position: absolute;
     right: 10px;
     transition: width cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
-    overflow: auto;
-    -webkit-animation: expand 0.5s;
+    overflow: hidden;
+    z-index: 1;
 }
 
 .formulario-grupo {
@@ -189,6 +184,7 @@ ng-map#mapa {
     border-bottom: 0;
     border-right: 0;
     position: absolute;
+    z-index: 2;
 }
 
 .botao-menu {
@@ -256,6 +252,52 @@ ng-map#mapa {
 .animate-if.ng-leave,
 .animate-if.ng-enter.ng-enter-active {
   left:0px;
+}
+
+.slide-left.ng-enter,
+.slide-left.ng-leave,
+.slide-right.ng-enter,
+.slide-right.ng-leave {
+  position: absolute;
+  top: 0; right: 0; bottom: 0; left: 0;
+  background: inherit;
+  -ms-transition: .7s ease-in-out;
+  -webkit-transition: .7s ease-in-out;
+  transition:  .7s ease-in-out;
+}
+
+.slide-left.ng-enter {}
+.slide-left.ng-enter.ng-enter-active {
+  -webkit-transform: translateX(0);
+  transform: translateX(0);
+}
+
+.slide-left.ng-leave {
+  z-index: 100;
+  -webkit-transform: translateX(0);
+  transform: translateX(0);
+}
+.slide-left.ng-leave.ng-leave-active {
+  -webkit-transform: translateX(-100%);
+  transform: translateX(-100%);
+}
+
+
+.slide-right.ng-enter {
+  -webkit-transform: translateX(-100%);
+  transform: translateX(-100%);
+} 
+
+.slide-right.ng-enter.ng-enter-active, 
+.slide-right.ng-leave {
+  position: absolute;
+  -webkit-transform: translateX(0);
+  transform: translateX(0);
+}
+
+.slide-right.ng-leave.ng-leave-active {
+  -webkit-transform: translateX(100%);
+  transform: translateX(100%);
 }
 
 #myLogin{

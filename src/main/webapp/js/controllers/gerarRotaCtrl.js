@@ -16,4 +16,9 @@ angular.module("siger").controller("gerarRotaCtrl", function($scope,$state, $roo
         $rootScope.alunosDaRota = $scope.alunosRota; //Usando scope global por enquanto para testar interação entre os controllers
         $state.go("dashboard.mapaRota"); //Move para a página do mapa
     };
+    $scope.isAlunoSelecionado = function(alunos){
+        return alunos.some(function(aluno){
+            return aluno.selecionado;
+        });
+    };
 });

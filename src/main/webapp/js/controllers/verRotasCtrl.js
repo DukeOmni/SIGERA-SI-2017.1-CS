@@ -1,6 +1,5 @@
 angular.module("siger").controller("verRotasCtrl", function ($scope, $rootScope) {
     $scope.rotasCompletas = $rootScope.rotasFeitas;
-    console.log($scope.rotasCompletas);
     $scope.travelMode = "DRIVING";
 
     $scope.mostrarRota = function(rota){

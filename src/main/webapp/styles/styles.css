@@ -97,6 +97,7 @@ a, a:link, a:visited, a:hover, a:active {
     padding: 20px;
     border: 0;
     background-color: #c48366;
+    cursor: pointer;
 }
 
 .formulario {
@@ -215,6 +216,7 @@ ng-map#mapa {
     border-collapse: collapse;
     float: left;
     width: 50%;
+    cursor: pointer;
 }
 
 .ver-alunos{

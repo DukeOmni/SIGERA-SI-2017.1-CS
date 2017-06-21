@@ -1,0 +1,5 @@
+Segue a descrição dos objetos que irão para o backend:
+
+alunosCadastrados = {nome: "string", endereco: "string", instituicao: "string", telefone: "string"}
+
+rotaCompleta = {origem: "coordToString", waypoint: array, destino: "string", data: JSDate}

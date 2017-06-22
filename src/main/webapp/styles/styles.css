@@ -221,9 +221,9 @@ ng-map#mapa {
 
 .ver-alunos{
     color: #c48366;
-    padding: 20px;
     width: 100%;
     transition: 0.4s;
+	font-size: 20pt;
 }
 
 .ver-alunos:hover{

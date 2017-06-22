@@ -1,7 +1,9 @@
-angular.module("siger").controller("cadastrarAlunoCtrl", function($scope, $rootScope){ //Incluir alunosAPI
-    $scope.adicionarAluno = function(aluno){
+angular.module("siger").controller("cadastrarAlunoCtrl", function ($scope, $rootScope) { //Incluir alunosAPI
+	$scope.instituicoes = $rootScope.instituicoes;
+	console.log($scope.instituicoes);
+	$scope.adicionarAluno = function (aluno) {
         $rootScope.alunosCadastrados.push($scope.aluno); //Em vez de adicionar ao array, enviaria para o backend
-        delete $scope.aluno;
+		delete $scope.aluno;
         $scope.formAluno.$setPristine();
     };
 

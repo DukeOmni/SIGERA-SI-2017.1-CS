@@ -1,14 +1,17 @@
 <div class="container">
-    <form class="formulario" id="gerarRota">
+    <form class="formulario" id="gerarRota" name="formRota">
     <h2 id="headerMobile">Confirmar Alunos</h2>
         <table class="tabela">
            <tr ng-repeat="aluno in alunos">
                <td class="tabela-coluna-input"><input type="checkbox" ng-model="aluno.selecionado"></td>
-               <td class="tabela-coluna-nome">{{aluno.nome}}</td>
+               <td class="tabela-coluna-nome">{{aluno.nome}} de {{aluno.instituicao.nome}}</td>
            </tr>
         </table>
+		<select ng-model="destino" ng-required="true" class="formulario-input">
+			<option ng-repeat="instituicao in instituicoes" value="{{instituicao.endereco}}">{{instituicao.nome}}</option>
+		</select>
         <div class="formulario-botao-container">
-            <button class="botao-estilo-2" ng-click="gerarRota(alunos)" ng-if="isAlunoSelecionado(alunos)">Gerar Rota</button>
+            <button class="botao-estilo-2" ng-click="gerarRota(alunos)" ng-if="isAlunoSelecionado(alunos)" ng-disabled="formRota.$invalid">Gerar Rota</button>
         </div>
     </form>
 </div>

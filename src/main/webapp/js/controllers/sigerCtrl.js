@@ -4,7 +4,6 @@ angular.module("siger").controller("sigerCtrl", function($scope, $location, $roo
     $scope.mostrarAluno = function(aluno){
         angular.element(document.querySelector("#"+aluno+"Accordion"))[0].classList.toggle("active");
         var alunoSelecionado = angular.element(document.querySelector("#"+aluno))[0];
-        console.log(alunoSelecionado.style.maxHeight);
         if(alunoSelecionado.style.maxHeight){
             alunoSelecionado.style.maxHeight = null;
         }else{

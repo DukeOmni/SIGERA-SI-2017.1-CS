@@ -1,14 +1,12 @@
-angular.module("siger").controller("mapaRotaCtrl", function($scope,$rootScope ,GeoCoder, GoogleDistanceAPI, NavigatorGeolocation){
+angular.module("siger").controller("mapaRotaCtrl", function($scope,$rootScope ,GeoCoder, GoogleDistanceAPI, NavigatorGeolocation, serialGenerate){
     
-    $scope.alunos = $rootScope.alunosDaRota; //Carregaria do backend o array de alunosRota para poder calcular a rota;
-
-    $scope.destino = "Goiânia, UFG campus samambaia, Reitoria UFG"; //Destino pode ser carregado do backend
+    $scope.alunos = $rootScope.rotaAtual.alunosDaRota; //Carregaria do backend o array de alunosRota para poder calcular a rota;
+	$scope.destino = $rootScope.rotaAtual.destino;
     $scope.waypoint = []; //Inicialização do array dos pontos de parada da rota
     $scope.googleMapUrl = "https://maps.google.com/maps/api/js"; //Definição da url da API do google para usar posteriormente no lazy-load do mapa definido na tag html da view
     $scope.pauseLoading = true; //Variável que "trava" o carregamento da div que contém o mapa
     $scope.travelMode = "DRIVING";
-    //Substitui o tempo de carregamento pelo tempo de processamento dos dados iniciais da rota :)
-
+ 
     calcRota(); //Pega os endereços dos alunos que irão na rota
 
     $scope.waypoint = traduzRota($scope.waypoint, 0); //Traduz os endereços de string para coordenadas
@@ -16,9 +14,9 @@ angular.module("siger").controller("mapaRotaCtrl", function($scope,$rootScope ,G
 
      function calcRota (){ //Função que preenche o array de pontos de parada com os endereços dos alunos que irão na rota
         var alunos = $scope.alunos;
-        for (var i = 0, len = alunos.length; i < len; i++){
-           $scope.waypoint[i] = alunos[i].endereco;
-        };
+        for (var i = 0, len = alunos.length; i < len; i++){ //Colocando os pontos de paradas das casas dos alunos
+			$scope.waypoint[i] = alunos[i].endereco;
+		};
     };
 
     $scope.mapInit = function(map){  //Função que executa após a inicialização do mapa
@@ -66,7 +64,7 @@ angular.module("siger").controller("mapaRotaCtrl", function($scope,$rootScope ,G
                     };
                     auxArray.splice(menorAux, 1);
                 };
-                $scope.rotaCompleta = {origem: currentPosition, waypoint: $scope.waypoint, destino: $scope.destino, data: new Date()}; //Essa linha serve para armazenar a rota em um objeto e mandar para o banco
+                $scope.rotaCompleta = {origem: currentPosition, waypoint: $scope.waypoint, destino: $scope.destino, data: new Date(), serial: serialGenerate.generateSerial()}; //Essa linha serve para armazenar a rota em um objeto e mandar para o banco
                 $rootScope.rotasFeitas.push($scope.rotaCompleta);
                 if(detectmob()){ //Testa se é dispositivo mobile após reorganizar a rota
                 chamarGoogleMapSite();

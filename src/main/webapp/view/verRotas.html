@@ -1,20 +1,22 @@
 <div class="container-desktop" id="verRotas">
-    <table class="ver-alunos-tabela" style="float: left; width: 48%"
-           ng-if="rotasCompletas.length > 0">
+    <table class="ver-alunos-tabela" style="float: left;" ng-if="rotasCompletas.length > 0">
         <tr ng-repeat="rota in rotasCompletas">
-            <td class="ver-alunos"  ng-click="mostrarRota(rota)"><a>{{rota.data | date: "dd/MM/yy, hh:mm"}}</a></td>
+            <td class="ver-alunos" id="{{rota.serial}}Accordion" style="width:100%;"><a style="width: 100%"ng-click="mostrarRota(rota.serial)">{{rota.data | date: "dd/MM/yy, hh:mm"}}</a>
+				<div id="{{rota.serial}}" style="width:100%;" ng-if="rotasCompletas.length > 0" class="aluno-selecionado">
+					<ng-map center="{{rota.origin}}" default-style="false">
+						<directions draggable="false"
+									travel-mode="{{travelMode}}"
+									origin="{{rota.origem[0]}}"
+									waypoints="{{rota.waypoint}}"
+									destination="{{rota.destino}}">
+						</directions>
+					</ng-map>
+				</div>
+			</td>
+
         </tr>
     </table>
-    <div id="container-mapa" style="float: right;" ng-if="rotasCompletas.length > 0">
-        <ng-map id="mapa" center="{{origin}}" default-style="false">
-            <directions draggable="true"
-                        travel-mode="{{travelMode}}"
-                        origin="{{origin}}"
-                        waypoints="{{waypoint}}"
-                        destination="{{destino}}">
-            </directions>
-        </ng-map>
-    </div>
+    
     <div ng-if="rotasCompletas.length == 0">
         <h2>Gere uma rota para visualizar aqui!</h2>
     </div>

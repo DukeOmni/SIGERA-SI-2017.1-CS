@@ -13,8 +13,11 @@
         </div>
         <div class="formulario-grupo">
             <label for="instituicao">Instituição</label><br>
-            <input class="formulario-input" type="text" id="instituicao" name="instituicao" ng-model="aluno.instituicao" ng-required="true"><br>
-            <div ng-show="formAluno.instituicao.$error.required && formAluno.instituicao.$dirty">Preencha a instituição por favor</div>
+            <select class="formulario-input"  id="instituicao" name="instituicao" ng-model="aluno.instituicao" ng-required="true">
+					<option ng-repeat="instituicao in instituicoes" >{{instituicao.nome}}</option>
+			</select>
+			<br>
+            <div ng-show="formAluno.instituicao.$error.required && formAluno.instituicao.$dirty">Escolha a instituição por favor</div>
         </div>
         <div class="formulario-grupo">
             <label for="telefone">Telefone</label><br>

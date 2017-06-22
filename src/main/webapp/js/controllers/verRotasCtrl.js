@@ -1,16 +1,18 @@
-angular.module("siger").controller("verRotasCtrl", function ($scope, $rootScope) {
+angular.module("siger").controller("verRotasCtrl", function (NgMap,$scope, $rootScope) {
     $scope.rotasCompletas = $rootScope.rotasFeitas;
     $scope.travelMode = "DRIVING";
-
+	var map = NgMap.getMap("mapaVerRotas").then(function (map) {
+		console.log(map);
+	});
     $scope.mostrarRota = function(rota){
-        if (rota.data != $scope.dataRotaAtual) {
-        $scope.origin = "" + rota.origem[0];
-        $scope.waypoint = [];
-        for(var i = 0, len = rota.waypoint.length; i < len; i++){
-            $scope.waypoint[i] = { location: {lat:rota.waypoint[i].location.lat(), lng: rota.waypoint[i].location.lng()}, stopover: true};
-        };
-        $scope.destino = rota.destino;
-        $scope.dataRotaAtual = rota.data;
-        };
-    };
+		angular.element(document.querySelector("#" + rota + "Accordion"))[0].classList.toggle("active");
+		var alunoSelecionado = angular.element(document.querySelector("#" + rota))[0];
+		if (alunoSelecionado.style.maxHeight) {
+			alunoSelecionado.style.maxHeight = null;
+		} else {
+			alunoSelecionado.style.maxHeight = "400px";
+		}
+	};
+
+
 });

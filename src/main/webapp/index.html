@@ -2,6 +2,7 @@
 <html lang="pt-br" ng-app="siger">
 <head>
     <script src="https://maps.google.com/maps/api/js?key=AIzaSyBygo_E8OmkOzFg8JiMBZ_feLSRS83nUmA&libraries=geometry"></script>
+	<script src="https://apis.google.com/js/platform.js" async defer></script>
     <script src="lib/angular.js"></script>
     <script src="//unpkg.com/angular-ui-router/release/angular-ui-router.min.js"></script>
     <script src="lib/angular-google-distance.js"></script>
@@ -11,13 +12,32 @@
     <script src="js/controllers/sigerCtrl.js"></script>
     <!--<script src="js/value/configValue.js"></script>
     <script src="js/services/alunosAPIService.js"></script>-->
+
+	<script src="https://www.gstatic.com/firebasejs/4.1.3/firebase.js"></script>
+	<script>
+		// Initialize Firebase
+		var config = {
+			apiKey: "AIzaSyCxOJThH8OLkGmZX3C8sqLy7uadO7P8SZk",
+			authDomain: "sigma-hallway-167212.firebaseapp.com",
+			databaseURL: "https://sigma-hallway-167212.firebaseio.com",
+			projectId: "sigma-hallway-167212",
+			storageBucket: "",
+			messagingSenderId: "593348774945"
+		};
+		firebase.initializeApp(config);
+	</script>
+
+	<!-- AngularFire -->
+	<script src="https://cdn.firebase.com/libs/angularfire/2.3.0/angularfire.min.js"></script>
+
     <script src="js/controllers/dashboardCtrl.js"></script>
     <script src="js/controllers/loginCtrl.js"></script>
     <script src="js/controllers/gerarRotaCtrl.js"></script>
     <script src="js/controllers/cadastrarAlunoCtrl.js"></script>
     <script src="js/controllers/mapaRotaCtrl.js"></script>
     <script src="js/controllers/verRotasCtrl.js"></script>
-    <script src="js/routers/sigerRouter.js"></script>
+	<script src="js/controllers/registrarCtrl.js"></script>
+	<script src="js/routers/sigerRouter.js"></script>
 	<script src="js/services/serialGenerateService.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">

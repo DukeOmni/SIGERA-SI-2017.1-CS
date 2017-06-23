@@ -45,7 +45,12 @@ angular.module("siger").config(function($stateProvider, $urlRouterProvider){
         url: "/login",
         templateUrl: "view/login.html",
         controller: "loginCtrl"
-    });
+		}).
+	state("registrar", {
+		url: "/registrar",
+		templateUrl: "view/registrar.html",
+		controller: "registrarCtrl"
+	})
 
     $urlRouterProvider.otherwise('/login');
 });

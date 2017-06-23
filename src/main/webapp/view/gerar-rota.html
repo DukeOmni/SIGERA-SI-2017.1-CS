@@ -7,7 +7,7 @@
                <td class="tabela-coluna-nome">{{aluno.nome}} de {{aluno.instituicao.nome}}</td>
            </tr>
         </table>
-		<select ng-model="destino" ng-required="true" class="formulario-input">
+		Destino: <select ng-model="destino" ng-required="true" class="formulario-input" style="width:50%">
 			<option ng-repeat="instituicao in instituicoes" value="{{instituicao.endereco}}">{{instituicao.nome}}</option>
 		</select>
         <div class="formulario-botao-container">

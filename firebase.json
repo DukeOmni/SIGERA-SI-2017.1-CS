@@ -1,0 +1,11 @@
+{
+  "hosting": {
+    "public": "src/main/webapp",
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}

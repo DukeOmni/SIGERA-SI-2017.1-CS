@@ -1,7 +1,7 @@
 # SIGERA-SI-2017.1-CS
 Descrição:
 Esse é um projeto prático acadêmico para a disciplina de Construção de Software. Os envolvidos são os integrantes do grupo do projeto. A sigla SIGERA é de Sistema de Geração de Rotas Automatizadas e o propósito desse sistema é ser uma ferramenta que auxilia motoristas que trabalham com transporte de pessoas.
-
+Para ver o estado atual do projeto acesse https://sigma-hallway-167212.firebaseapp.com/
 Observações: 
 - Para rodar o projeto no *google chrome* o index.html deve ser executado em um servidor do apache, recomenda-se o uso do xampp.
 - Para testar de um dispositivo/máquina diferente do localhost deve-se usar conexão https, por exemplo 

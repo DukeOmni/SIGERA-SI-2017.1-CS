@@ -334,6 +334,7 @@ ng-map#mapa {
 @media screen and (max-width: 1024px){
     .formulario{
         width:95%;
+		overflow: auto;
     }
     #headerMobile{
         display: block;
@@ -346,9 +347,15 @@ ng-map#mapa {
     }
     .container-login{
         width: 100%;
+		margin-top: -110px;
     }
     .formulario-grupo{
         margin: 25px 25px 25px 25px;
     }
+	.botao-estilo-2{
+		height: 20px;
+		width: 257px;
+		font-size: 10pt;
+	}
 
 }

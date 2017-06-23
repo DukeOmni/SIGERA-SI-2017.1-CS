@@ -11,9 +11,9 @@ https://localhost...
 Últimos recursos adicionados:
 - Geração de rotas usando o menor caminho possível.
 - Detecção de qual tipo de dispositivo está sendo usado e redirecionamento para página do google maps caso seja mobile.
-- Menu lateral para versão desktop
-- Autenticação com login e senha
-- Interação entre as telas finalizada
+- Menu lateral para versão desktop.
+- Autenticação com login e senha.
+- Interação entre as telas finalizada.
 
 Futuras atualizações:
 - Refatoração do front end.

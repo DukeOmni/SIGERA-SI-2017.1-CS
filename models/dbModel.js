@@ -9,7 +9,7 @@ var  alunosSchema = new Schema({
 });
 
 var rotaSchema = new Schema({
-    origem:CoordToString,
+    origem: /*Aqui eu preciso saber se pode ser type Number, o javascript não tem um tipo coordTostring*/
     waypoint:Array,
     destino:String,
     data: Date /*Pode escolher se a data é a atual{type: Date,default:Date.now}*/

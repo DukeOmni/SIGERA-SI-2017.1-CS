@@ -1,0 +1,9 @@
+﻿################################################################################
+# Este arquivo .gitignore foi criado automaticamente pelo Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/config/applicationhost.config
+/.vs
+/.vs/SIGERA-SI-2017.1-CS/v15/.suo
+/.vs/slnx.sqlite
+/.vs/VSWorkspaceState.json

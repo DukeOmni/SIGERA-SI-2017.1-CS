@@ -7,7 +7,10 @@ angular.module("siger").config(function($stateProvider, $urlRouterProvider){
             "check": function($state, $rootScope){
                 if(!$rootScope.logado){
                     $state.go("login");
-                }
+				} else
+				{
+					$state.go("dashboard.inicio");
+				}
             }
         }
     }).
@@ -50,7 +53,12 @@ angular.module("siger").config(function($stateProvider, $urlRouterProvider){
 		url: "/registrar",
 		templateUrl: "view/registrar.html",
 		controller: "registrarCtrl"
-	})
+		}).
+		state("dashboard.inicio", {
+			url: "/inicio",
+			templateUrl: "view/inicio.html",
+			controller: "inicioCtrl"
+		})
 
     $urlRouterProvider.otherwise('/login');
 });

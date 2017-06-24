@@ -7,8 +7,8 @@
 <div ng-if="!detectMobile()" style="height: 88vh; position: relative;"> <!-- Versão desktop -->
     <div class="container-menu animate-if" ng-if="viewMenu">
         <ul class="botao-menu">
-            <a ui-sref="dashboard">
-                <li ng-class="{active: $state.current.name == 'dashboard'}">Início</li>
+            <a ui-sref="dashboard.inicio">
+                <li ng-class="{active: $state.current.name == 'dashboard.inicio'}">Início</li>
             </a>
             <a ui-sref="dashboard.cadastrarAluno">
                 <li ng-class="{active: $state.current.name == 'dashboard.cadastrarAluno'}">Cadastrar alunos</li>
@@ -25,7 +25,7 @@
             <a ui-sref="dashboard.sobreNos">
                 <li ng-class="{active: $state.current.name ==  'dashboard.sobreNos'}">Sobre nós</li>
             </a>
-			<a ui-sref="login">
+			<a ui-sref="login" ng-click="deslogar()">
 				<li>Logout</li>
 			</a>
         </ul>

@@ -1,3 +1,3 @@
 angular.module("siger").value("config", {
-    baseUrl: ""
+    baseUrl: "localhost:3000/api"
 });

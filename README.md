@@ -29,6 +29,6 @@ Requer [Node.js](https://nodejs.org/) v6+ para rodar.
 
 ```sh
 $ Detalhe: O projeto estará escutando a porta 3000
-$ Para multiplos usuários na mesma rede: O protocolo TPC/IP é configurado na maquina que subiu a aplicação
-$ Os demais usuário devem escrever no navegador o ip-do-host:3000
+$ O protocolo TPC/IP é configurado na maquina que subiu a aplicação
+$ Usuários-nonHost devem escrever no navegador o 127.0.0.1:3000
 ```

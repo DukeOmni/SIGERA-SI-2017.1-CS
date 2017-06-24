@@ -20,16 +20,15 @@ Futuras atualizações:
 - Integração com back end usando node.js.
 
 
-##Para utilizar a aplicação (Opção nodejs):
+## Para utilizar a aplicação (Opção nodejs):
+
+Requer [Node.js](https://nodejs.org/) v6+ para rodar.
+
+### Acesse o root após instalar node, abra a bash e digite node + app.js:
 
 
-###Acesse o root após instalar node, abra a bash e digite node + app.js:
-
-
-`Detalhe: O projeto estará escutando a porta 3000`
-
-
-`Para multiplos usuários na mesma rede: O protocolo TPC/IP é configurado na maquina que subiu a aplicação`
-
-
-`Os demais usuário devem escrever no navegador o ip-do-host:3000`
+```sh
+$ Detalhe: O projeto estará escutando a porta 3000
+$ Para multiplos usuários na mesma rede: O protocolo TPC/IP é configurado na maquina que subiu a aplicação
+$ Os demais usuário devem escrever no navegador o ip-do-host:3000
+```

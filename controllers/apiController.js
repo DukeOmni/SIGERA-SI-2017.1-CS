@@ -7,34 +7,40 @@ module.exports = function(express_app){
     express_app.use(bodyparser.json());
     express_app.use(bodyparser.urlencoded({extended:true}));
 /*----------------------ALUNO---------------------------*/
-// EndPoint para Get utilizando url, com o parametro NOME
+// EndPoint para GET utilizando url, com o parametro NOME
     express_app.get('/api/alunos/:nomeAluno',function(req,res){
         Sigera.Alunos().find({nome:req.params.nomeAluno},function(err,querry){
             if(err)throw err;
-            res.send('Success');
+            res.send(querry);
         });
     });
-// Endpoint para post utilizando do body da requisição
-    express_app.post('/api/alunos',function(req,res){
-//Se mandar o ID, quer dizer UPDATE: 
-        if(req.body.id){
-            Sigera.Alunos().findByIdAndUpdate(req.body.id,{endereco:req.body.endereco,
-                instituicao:{nome:req.body.instituicao.nome,endereco:req.body.instituicao.endereco},
-                telefone:req.body.telefone}),function(err,querry){
-                    if(err)throw err;
-                    res.send('Succes');
-                }
-        }
-// Se não mandar o ID, quer dizer CREATE::
+// Endpoint para POST utilizando do body da requisição
+    express_app.post('/api/alunos',function(req,res){    
+        if(req.body._id){
+            Sigera.Alunos().findByIdAndUpdate(req.body._id,{nome:req.body.nome,endereco:req.body.endereco,
+            instituicao:{nome:req.body.instituicao.nome,endereco:req.body.instituicao.endereco},
+            telefone:req.body.telefone},
+            
+            function(err,results){
+                if(err)throw err;
+                res.send('Success');
+        })
+    }
         else{
             var novoAluno = Sigera.Alunos({
-            endereco:req.body.endereco,
-            instituicao: { 
-                nome:req.body.instituicao.nome,
-                endereco:req.body.instituicao.endereco
+                nome:req.body.nome,
+                endereco:req.body.endereco,
+                instituicao:{
+                    nome:req.body.instituicao.nome,
+                    endereco:req.body.instituicao.endereco
                 },
-            telefone:req.body.telefone
+                telefone:req.body.telefone
             });
+            novoAluno.create(function(err,results){
+                if(err)throw err;
+                res.send('Success');
+            })
         }
+// termino da função
     });
-}
+}/*Término do module.exports*/

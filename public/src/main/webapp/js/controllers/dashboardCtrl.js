@@ -31,13 +31,14 @@ angular.module("siger").controller("dashboardCtrl", function ($scope, $state, $r
     $scope.slide = $scope.slide || 'slide-left'
   });
   
-    $rootScope.back = function(){
-    $scope.slide = 'slide-right';
-    $window.history.back();
-  }  
-  
-  $rootScope.forward = function(){
-    $scope.slide = 'slide-left';
-    $window.history.forward();
-  }
+	$scope.deslogar = function ()
+	{
+		firebase.auth().signOut().then(function ()
+		{
+			$rootScope.logado = false;
+		}, function (error)
+			{
+				alert("Falhou ao deslogar: " + error);
+			});
+	};
 });

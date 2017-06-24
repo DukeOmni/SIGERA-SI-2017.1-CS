@@ -16,10 +16,7 @@ angular.module("siger").controller("loginCtrl", function ($scope, $state, $rootS
 		{
 			var errorCode = error.code;
 			var errorMessage = error.message;
-
-			var email = error.email;
-
-			var credential = error.credential;
+			console.log(errorMessage);
 		});
 	};
 	$scope.logarComEmail = function (email, senha)
@@ -30,11 +27,16 @@ angular.module("siger").controller("loginCtrl", function ($scope, $state, $rootS
 			$state.go("dashboard");
 		}).catch(function (error)
 		{
-			// Handle Errors here.
+			
 			var errorCode = error.code;
 			var errorMessage = error.message;
-			console.log(errorMessage);
-			// ...
+			if (errorCode == 'auth/wrong-password') {
+				alert("Senha incorreta");
+			}else if (errorCode == 'auth/user-not-found') {
+				alert("Email não cadastrado");
+			} else {
+				alert(errorMessage);
+			};
 		});
 	};
 });

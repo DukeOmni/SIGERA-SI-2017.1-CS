@@ -24,7 +24,7 @@ var rotaSchema = new Schema({
     data: Date,
     serial: String
 });
-var Alunos = mongoose.model('AlunosCadastrados',alunosSchema,'users');
+
 module.exports = {
 Alunos: function(){
     return mongoose.model('AlunosCadastrados',alunosSchema,'users');

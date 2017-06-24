@@ -17,8 +17,6 @@ https://localhost...
 
 Futuras atualizações:
 - Refatoração do front end.
-- Integração com back end usando node.js.
-
 
 ## Para utilizar a aplicação (Opção nodejs):
 

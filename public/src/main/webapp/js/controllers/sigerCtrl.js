@@ -22,10 +22,21 @@ angular.module("siger").controller("sigerCtrl", function($scope, $location, $roo
         if(alunoSelecionado.style.maxHeight){
             alunoSelecionado.style.maxHeight = null;
         }else{
-            alunoSelecionado.style.maxHeight = "200px";
+            alunoSelecionado.style.maxHeight = "300px";
          }
 	};
 
+	$scope.deletarAluno = function (aluno)
+	{
+		alunosAPI.deleteAluno(aluno).then(function ()
+		{
+			carregarAlunos();
+		});
+	};
+	$scope.recarregarAlunos = function ()
+	{
+		carregarAlunos();
+	}
 	carregarAlunos();
 });
 

@@ -5,7 +5,11 @@
                 <div class="aluno-selecionado" id="{{aluno.serial}}">
                 <p>Endereço: {{aluno.endereco}} <br>
                 Instituição: {{aluno.instituicao.nome}} <br>
-                Telefone: {{aluno.telefone}} <br></p>
+                Telefone: {{aluno.telefone}} <br>
+				<a ng-click="deletarAluno(aluno)" style="cursor:pointer; color: white">
+					Deletar
+				</a>	
+					</p>
                 </div>
             </td>
         </tr>  

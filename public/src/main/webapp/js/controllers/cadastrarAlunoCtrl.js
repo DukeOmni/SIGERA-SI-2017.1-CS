@@ -9,7 +9,6 @@ angular.module("siger").controller("cadastrarAlunoCtrl", function ($scope, $root
 				aluno.instituicao = $scope.instituicoes[i];
 		};
 		aluno.serial = serialGenerate.generateSerial();
-		console.log(JSON.stringify(aluno));
 		 alunosAPI.saveAluno(aluno).then(function ()
 		 {
              delete $scope.aluno;

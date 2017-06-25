@@ -8,9 +8,18 @@ angular.module("siger").factory("alunosAPI", function($http, config){
 		{
 			alert(response.data);
 		});
-    };
+	};
+
+	var _deleteAluno = function (aluno)
+	{
+		return $http.delete(config.baseUrl + "/alunos/" + aluno._id).then(function (response)
+		{
+			console.log(response.data);
+		});
+	};
     return {
         getAlunos: _getAlunos,
-        saveAluno: _saveAluno
+		saveAluno: _saveAluno,
+		deleteAluno: _deleteAluno
     };
 });

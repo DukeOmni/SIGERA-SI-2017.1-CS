@@ -1,14 +1,16 @@
-angular.module("siger").controller("cadastrarAlunoCtrl", function ($scope, $rootScope, alunosAPI) { //Incluir alunosAPI
+angular.module("siger").controller("cadastrarAlunoCtrl", function ($scope, $rootScope, alunosAPI) {
 	$scope.instituicoes = $rootScope.instituicoes;
-	console.log($scope.instituicoes);
-	//$scope.adicionarAluno = function (aluno) {
- //       $rootScope.alunosCadastrados.push($scope.aluno); //Em vez de adicionar ao array, enviaria para o backend
-	//	delete $scope.aluno;
- //       $scope.formAluno.$setPristine();
- //   };
 
-     $scope.adicionarAluno = function(aluno){  //Assim que o backend ficar pronto
-         alunosAPI.saveAluno(aluno).then(function(){
+	$scope.adicionarAluno = function (aluno)
+	{
+		for (i = 0, len = $scope.instituicoes.length; i < len; i++)
+		{
+			if (aluno.instituicao == $scope.instituicoes[i].nome)
+				aluno.instituicao = $scope.instituicoes[i];
+		};
+		console.log(aluno.instituicao);
+		 alunosAPI.saveAluno(aluno).then(function ()
+		 {
              delete $scope.aluno;
              $scope.formAluno.$setPristine();
          });

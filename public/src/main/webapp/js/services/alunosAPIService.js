@@ -4,7 +4,10 @@ angular.module("siger").factory("alunosAPI", function($http, config){
     };
 
     var _saveAluno = function(aluno){
-        return $http.post(config.baseUrl + "/alunos", aluno);
+		return $http.post(config.baseUrl + "/alunos", aluno).then(function (response)
+		{
+			alert(response.data);
+		});
     };
     return {
         getAlunos: _getAlunos,

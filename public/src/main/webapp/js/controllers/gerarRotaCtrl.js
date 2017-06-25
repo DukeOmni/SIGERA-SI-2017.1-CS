@@ -1,14 +1,15 @@
-angular.module("siger").controller("gerarRotaCtrl", function($scope,$state, $rootScope){ //Incluir o serviço alunosAPI
+angular.module("siger").controller("gerarRotaCtrl", function($scope,$state, $rootScope, alunosAPI){ //Incluir o serviço alunosAPI
 	$scope.destino;
-	$scope.alunos = $rootScope.alunosCadastrados;
-    
-    // var carregarAlunos = function(){  //Assim que o backend ficar pronto
-    //     alunosAPI.getAlunos().then(function(data){
-    //         $scope.alunos = data.data;
-    //     }, function(data){
-    //         console.log("Não foi possível carregar os alunos :(");
-    //     });
-    // }; 
+	$scope.alunos;
+     var carregarAlunos = function(){  //Assim que o backend ficar pronto
+         alunosAPI.getAlunos().then(function(response){
+			 $scope.alunos = response.data;
+			 console.log(JSON.stringify(response));
+         }, function(data){
+             console.log("Não foi possível carregar os alunos :(");
+         });
+     }; 
+
 
     $scope.gerarRota = function(alunos){
         $scope.alunosRota = alunos.filter(function(aluno){
@@ -21,5 +22,7 @@ angular.module("siger").controller("gerarRotaCtrl", function($scope,$state, $roo
         return alunos.some(function(aluno){
             return aluno.selecionado;
         });
-    };
+	};
+
+	carregarAlunos();
 });

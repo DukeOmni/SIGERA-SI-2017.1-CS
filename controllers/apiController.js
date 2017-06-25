@@ -13,9 +13,9 @@ module.exports = function(express_app){
         next();
     });
 /*----------------------ALUNO---------------------------*/
-// EndPoint para GET utilizando url, com o parametro NOME
-    express_app.get('/api/alunos/:nomeAluno',function(req,res){
-        Sigera.Alunos().find({nome:req.params.nomeAluno},function(err,querry){
+// EndPoint para GET
+    express_app.get('/api/alunos/',function(req,res){
+        Sigera.Alunos().find({},function(err,querry){
             if(err)throw err;
             res.send(querry);
         });

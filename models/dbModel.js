@@ -21,9 +21,9 @@ var rotaSchema = new Schema({
 
 module.exports = {
 Alunos: function(){
-    return mongoose.model('AlunosCadastrados',alunosSchema,'users');
+    return mongoose.model('AlunosCadastrados',alunosSchema,'Alunos');
 },
 Rota: function() {
-    return mongoose.model('RotaCompleta',rotaSchema,'users');
+    return mongoose.model('RotaCompleta',rotaSchema,'Rotas');
 }
 }

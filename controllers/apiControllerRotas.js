@@ -9,13 +9,18 @@ module.exports = function(express_app){
         res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
         next();
     });
+// END POINT para GET em api ROTAS, return = ALL
     express_app.get('/api/rotas',function(req,res){
         Sigera.Rota().find({},function(err,querry){
             if(err)throw err;
             res.send(querry);
         });
     });
+// END POINT para POST em api ROTAS, return 'succes'
     express_app.post('/api/rotas',function(req,res){
+// Caso mande um ID, UPDATE!!! Ele dá o update no objeto como você mandou,
+// Caso não mande algum atributo ele não incluirá no banco esse atributo
+// Tome cuidado
         if(req.body._id){
             Sigera.Rota().findByIdAndUpdate(req.body._id,{origem:req.body.origem,waypoint:req.body.waypoint,
             destino:req.body.destino,data:req.body.data,serial:req.body.serial},function(err,querry){
@@ -24,6 +29,7 @@ module.exports = function(express_app){
 
             });
         }
+// Caso não mande um ID, CREATE!!
         else{
             var novoRota = Sigera.Rota();
             var objectRota = novoRota({
@@ -39,6 +45,7 @@ module.exports = function(express_app){
         });
         }
     });/*fim do post*/
+// END Point da API para Delete, recebe o ID do objeto pela URL
     express_app.delete('/api/rotas/:id',function(req,res){
         Sigera.Rota().findByIdAndRemove({_id:req.params.id},function(err){
             if(err)throw err;

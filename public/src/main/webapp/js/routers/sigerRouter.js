@@ -7,10 +7,7 @@ angular.module("siger").config(function($stateProvider, $urlRouterProvider){
             "check": function($state, $rootScope){
                 if(!$rootScope.logado){
                     $state.go("login");
-				} else
-				{
-					$state.go("dashboard.inicio");
-				}
+				} 
             }
         }
     }).

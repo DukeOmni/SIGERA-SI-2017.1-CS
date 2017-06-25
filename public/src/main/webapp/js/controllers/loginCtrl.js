@@ -1,4 +1,4 @@
-angular.module("siger").controller("loginCtrl", function ($scope, $state, $rootScope, $firebaseAuth){
+angular.module("siger").controller("loginCtrl", function ($scope, $state, $rootScope){
 	
 
 	$scope.logarComGoogle = function ()

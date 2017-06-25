@@ -1,14 +1,6 @@
-angular.module("siger").controller("sigerCtrl", function($scope, $location, $rootScope, $firebaseObject){
+angular.module("siger").controller("sigerCtrl", function($scope, $location, $rootScope){
     $scope.alunos = $rootScope.alunosCadastrados;
 	$scope.alunoSelecionado;
-
-	//var ref = firebase.database().ref();
-	//$scope.dataTeste = $firebaseObject(ref);
-	//$scope.dataTeste.$loaded().then(function () {
-	//	console.log($scope.dataTeste);
-	//}).catch(function (err) {
-	//	console.error(err);
-	//});
 
 
     $scope.mostrarAluno = function(aluno){

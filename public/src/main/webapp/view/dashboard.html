@@ -40,6 +40,11 @@
     <a ui-sref="dashboard.gerarRota">
         <div class="botao-home">Gerar Rota</div>
     </a>
+
+	<a ui-sref="login">
+		<div class="botao-home" ng-click="deslogar()">Logout</div>
+	</a>
+
 </div>
 <div ng-if="detectMobile()" ui-view></div>
 

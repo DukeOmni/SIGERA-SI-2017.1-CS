@@ -1,4 +1,4 @@
-angular.module("siger").controller("cadastrarAlunoCtrl", function ($scope, $rootScope, alunosAPI) {
+angular.module("siger").controller("cadastrarAlunoCtrl", function ($scope, $rootScope, alunosAPI, serialGenerate) {
 	$scope.instituicoes = $rootScope.instituicoes;
 
 	$scope.adicionarAluno = function (aluno)
@@ -8,7 +8,8 @@ angular.module("siger").controller("cadastrarAlunoCtrl", function ($scope, $root
 			if (aluno.instituicao == $scope.instituicoes[i].nome)
 				aluno.instituicao = $scope.instituicoes[i];
 		};
-		console.log(aluno.instituicao);
+		aluno.serial = serialGenerate.generateSerial();
+		console.log(JSON.stringify(aluno));
 		 alunosAPI.saveAluno(aluno).then(function ()
 		 {
              delete $scope.aluno;

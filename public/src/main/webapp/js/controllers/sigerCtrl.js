@@ -7,13 +7,16 @@ angular.module("siger").controller("sigerCtrl", function($scope, $location, $roo
 		alunosAPI.getAlunos().then(function (response)
 		{
 			$scope.alunos = response.data;
+			console.log(JSON.stringify($scope.alunos));
 		}, function (data)
 		{
 			console.log("Não foi possível carregar os alunos :(");
 		});
 	}; 
 
-    $scope.mostrarAluno = function(aluno){
+	$scope.mostrarAluno = function (aluno)
+	{
+		console.log(aluno);
         angular.element(document.querySelector("#"+aluno+"Accordion"))[0].classList.toggle("active");
         var alunoSelecionado = angular.element(document.querySelector("#"+aluno))[0];
         if(alunoSelecionado.style.maxHeight){

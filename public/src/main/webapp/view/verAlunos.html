@@ -1,8 +1,8 @@
 <div class="container-desktop" id="verAlunos">
     <table class="ver-alunos-tabela">
         <tr ng-repeat="aluno in alunos">
-            <td class="ver-alunos" ng-click="mostrarAluno(aluno.nome)" id="{{aluno.nome}}Accordion">{{aluno.nome}}
-                <div class="aluno-selecionado" id="{{aluno.nome}}">
+            <td class="ver-alunos" ng-click="mostrarAluno(aluno.serial)" id="{{aluno.serial}}Accordion">{{aluno.nome}}
+                <div class="aluno-selecionado" id="{{aluno.serial}}">
                 <p>Endereço: {{aluno.endereco}} <br>
                 Instituição: {{aluno.instituicao.nome}} <br>
                 Telefone: {{aluno.telefone}} <br></p>
@@ -10,5 +10,10 @@
             </td>
         </tr>  
     </table>
+	<a>
+		<div ng-click="recarregarAlunos()" class="botao-home" style="cursor: pointer;">
+			Recarregar alunos
+		</div>
+	</a>
     
 </div>

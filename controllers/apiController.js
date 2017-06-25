@@ -7,6 +7,11 @@ module.exports = function(express_app){
 // Essa api suporta url codificada com % e hexadecimais
     express_app.use(bodyparser.json());
     express_app.use(bodyparser.urlencoded({extended:true}));
+    express_app.use(function(req,res,next){
+        res.header("Access-Control-Allow-Origin", "*");
+        res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+        next();
+    });
 /*----------------------ALUNO---------------------------*/
 // EndPoint para GET utilizando url, com o parametro NOME
     express_app.get('/api/alunos/:nomeAluno',function(req,res){

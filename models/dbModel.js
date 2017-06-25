@@ -14,12 +14,6 @@ var alunosSchema = new Schema({
 var rotaSchema = new Schema({
     origem: Array,
     waypoint:Array,
-    // waypoint:[{
-    //     location:{
-    //         lat:Number,
-    //         lng:Number,
-    //         stopover:Boolean
-    //     },
     destino:String,
     data: Date,
     serial: String

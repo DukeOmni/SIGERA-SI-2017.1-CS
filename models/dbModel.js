@@ -8,7 +8,8 @@ var alunosSchema = new Schema({
         nome:String,
         endereco:String
     },
-    telefone:String
+    telefone:String,
+    serial:String
 });
 
 var rotaSchema = new Schema({

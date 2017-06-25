@@ -34,7 +34,7 @@ module.exports = function(express_app){
 // Tirando o _id, deve enviar todas as outras propriedades abaixo
         else{
             var novoAluno = Sigera.Alunos();
-            var testeAluno = novoAluno({
+            var objectAluno = novoAluno({
                 nome:req.body.nome,
                 endereco:req.body.endereco,
                 instituicao:{
@@ -43,7 +43,8 @@ module.exports = function(express_app){
                 },
                 telefone:req.body.telefone
             })
-            testeAluno.save(function(err,results){
+// Workarround
+            objectAluno.save(function(err,results){
                 if(err)throw err;
                 res.send('Success');
             })

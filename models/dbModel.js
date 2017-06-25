@@ -1,26 +1,35 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
-var  alunosSchema = new Schema({
+var alunosSchema = new Schema({
 
     nome:String,
     endereco:String,
-    instituicao:String,
+    instituicao: { 
+        nome:String,
+        endereco:String
+    },
     telefone:String
 });
 
 var rotaSchema = new Schema({
-    origem: /*Aqui eu preciso saber se pode ser type Number, o javascript não tem um tipo coordTostring*/
+    origem: Array,
     waypoint:Array,
+    // waypoint:[{
+    //     location:{
+    //         lat:Number,
+    //         lng:Number,
+    //         stopover:Boolean
+    //     },
     destino:String,
-    data: Date /*Pode escolher se a data é a atual{type: Date,default:Date.now}*/
+    data: Date,
+    serial: String
 });
+
 module.exports = {
-Alunos : function(){
-    var AlunosCadastrados = mongoose.model('AlunosCadastrados',alunosSchema,'users');
-    return AlunosCadastrados;
+Alunos: function(){
+    return mongoose.model('AlunosCadastrados',alunosSchema,'users');
 },
 Rota: function() {
-    var RotaCompleta = mongoose.model('RotaCompleta',rotaSchema,'users');
-    return RotaCompleta;
+    return mongoose.model('RotaCompleta',rotaSchema,'users');
 }
 }

@@ -1,5 +1,5 @@
 <div class="container-desktop" id="verRotas">
-    <table class="ver-alunos-tabela" style="float: left;" ng-if="rotasCompletas.length > 0">
+    <table class="ver-alunos-tabela" style="float: left;" ng-if="rotasCompletas.length > 0 && !pauseLoading">
         <tr ng-repeat="rota in rotasCompletas">
             <td class="ver-alunos" id="{{rota.serial}}Accordion" style="width:100%;"><p style="width: 100%; margin:0; font-size: 20pt" ng-click="mostrarRota(rota.serial)">{{rota.data | date: "dd/MM/yy, hh:mm"}}</p>
 				<div id="{{rota.serial}}" style="width:100%;" ng-if="rotasCompletas.length > 0" class="aluno-selecionado">

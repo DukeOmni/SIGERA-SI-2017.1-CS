@@ -17,8 +17,32 @@ module.exports = function(express_app){
     });
     express_app.post('/api/rotas',function(req,res){
         if(req.body._id){
-            Sigera.Rota().findByIdAndUpdate(req.body._id,{origem:req.body.origem,waypoint:req.body.waypoint,destino:string,
-            data:req.body.data,serial:req.body.serial});
+            Sigera.Rota().findByIdAndUpdate(req.body._id,{origem:req.body.origem,waypoint:req.body.waypoint,
+            destino:req.body.destino,data:req.body.data,serial:req.body.serial},function(err,querry){
+                if(err) throw err;
+                res.send('Success');
+
+            });
         }
-    })
+        else{
+            var novoRota = Sigera.Rota();
+            var objectRota = novoRota({
+                origem: req.body.origem,
+                waypoint:req.body.waypoint,
+                destino:req.body.destino,
+                data: req.body.data,
+                serial: req.body.serial
+});
+        objectRota.save(function(err){
+            if(err)throw err;
+            res.send('Success');
+        });
+        }
+    });/*fim do post*/
+    express_app.delete('/api/rotas/:id',function(req,res){
+        Sigera.Rota().findByIdAndRemove({_id:req.params.id},function(err){
+            if(err)throw err;
+            res.send('Success');
+        });
+    });
 }/*Fim da exports*/

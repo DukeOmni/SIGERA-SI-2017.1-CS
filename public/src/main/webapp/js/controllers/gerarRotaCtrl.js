@@ -1,8 +1,10 @@
 angular.module("siger").controller("gerarRotaCtrl", function($scope,$state, $rootScope, alunosAPI){ //Incluir o serviço alunosAPI
+	var user = firebase.auth().currentUser;
 	$scope.destino;
 	$scope.alunos;
-     var carregarAlunos = function(){  //Assim que o backend ficar pronto
-         alunosAPI.getAlunos().then(function(response){
+     var carregarAlunos = function(userId){  //Assim que o backend ficar pronto
+		 alunosAPI.getAlunos(userId).then(function (response)
+		 {
 			 $scope.alunos = response.data;
 			 console.log(JSON.stringify(response));
          }, function(data){
@@ -24,5 +26,5 @@ angular.module("siger").controller("gerarRotaCtrl", function($scope,$state, $roo
         });
 	};
 
-	carregarAlunos();
+	carregarAlunos(user.uid);
 });

@@ -1,6 +1,6 @@
 angular.module("siger").factory("alunosAPI", function($http, config){
-    var _getAlunos = function(){
-        return $http.get(config.baseUrl + "/alunos");
+    var _getAlunos = function(userId){
+        return $http.get(config.baseUrl + "/alunos/" + userId);
     };
 
     var _saveAluno = function(aluno){

@@ -1,10 +1,10 @@
 angular.module("siger").controller("sigerCtrl", function($scope, $location, $rootScope, alunosAPI){
 	$scope.alunos;
 	$scope.alunoSelecionado;
-
+	var user = firebase.auth().currentUser;
 	var carregarAlunos = function ()
 	{ 
-		alunosAPI.getAlunos().then(function (response)
+		alunosAPI.getAlunos(user.uid).then(function (response)
 		{
 			$scope.alunos = response.data;
 			console.log(JSON.stringify($scope.alunos));

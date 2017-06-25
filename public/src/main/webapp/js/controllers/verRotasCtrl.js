@@ -1,6 +1,8 @@
 angular.module("siger").controller("verRotasCtrl", function (NgMap,$scope, $rootScope, rotasAPI) {
+	var user = firebase.auth().currentUser;
 	$scope.pauseLoading = true;
-	rotasAPI.getRotas().then(function (response)
+
+	rotasAPI.getRotas(user.uid).then(function (response)
 	{
 		$scope.rotasCompletas = response.data;
 		$scope.pauseLoading = false;

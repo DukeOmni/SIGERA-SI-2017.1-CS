@@ -1,5 +1,6 @@
 angular.module("siger").controller("mapaRotaCtrl", function($scope,$rootScope ,GeoCoder, GoogleDistanceAPI, NavigatorGeolocation, serialGenerate, rotasAPI){
-    $scope.alunos = $rootScope.rotaAtual.alunosDaRota; //Carregaria do backend o array de alunosRota para poder calcular a rota;
+	var user = firebase.auth().currentUser;
+	$scope.alunos = $rootScope.rotaAtual.alunosDaRota; //Carregaria do backend o array de alunosRota para poder calcular a rota;
 	$scope.destino = $rootScope.rotaAtual.destino;
     $scope.waypoint = []; //Inicialização do array dos pontos de parada da rota
     $scope.googleMapUrl = "https://maps.google.com/maps/api/js"; //Definição da url da API do google para usar posteriormente no lazy-load do mapa definido na tag html da view
@@ -63,7 +64,7 @@ angular.module("siger").controller("mapaRotaCtrl", function($scope,$rootScope ,G
                     };
                     auxArray.splice(menorAux, 1);
                 };
-                $scope.rotaCompleta = {origem: currentPosition, waypoint: $scope.waypoint, destino: $scope.destino, data: new Date(), serial: serialGenerate.generateSerial()}; //Essa linha serve para armazenar a rota em um objeto e mandar para o banco
+                $scope.rotaCompleta = {origem: currentPosition, waypoint: $scope.waypoint, destino: $scope.destino, data: new Date(), serial: serialGenerate.generateSerial(), user: user.uid}; //Essa linha serve para armazenar a rota em um objeto e mandar para o banco
 				rotasAPI.saveRota($scope.rotaCompleta).then(function ()
 				{
 					if (detectmob())

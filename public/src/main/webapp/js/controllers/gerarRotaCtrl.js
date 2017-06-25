@@ -15,8 +15,8 @@ angular.module("siger").controller("gerarRotaCtrl", function($scope,$state, $roo
         $scope.alunosRota = alunos.filter(function(aluno){
             if(aluno.selecionado) return aluno;
         }); // Após essa linha mandaríamos o array alunosRota para o backend para carregar posteriormente na próxima tela.
-		$rootScope.rotaAtual = {alunosDaRota: $scope.alunosRota, destino: $scope.destino }; //Usando scope global por enquanto para testar interação entre os controllers
-        $state.go("dashboard.mapaRota"); //Move para a página do mapa
+		$rootScope.rotaAtual = { alunosDaRota: $scope.alunosRota, destino: $scope.destino };
+		$state.go("dashboard.mapaRota");
     };
     $scope.isAlunoSelecionado = function(alunos){
         return alunos.some(function(aluno){

@@ -1,5 +1,11 @@
-angular.module("siger").controller("verRotasCtrl", function (NgMap,$scope, $rootScope) {
-    $scope.rotasCompletas = $rootScope.rotasFeitas;
+angular.module("siger").controller("verRotasCtrl", function (NgMap,$scope, $rootScope, rotasAPI) {
+	$scope.pauseLoading = true;
+	rotasAPI.getRotas().then(function (response)
+	{
+		$scope.rotasCompletas = response.data;
+		$scope.pauseLoading = false;
+	});
+
     $scope.travelMode = "DRIVING";
 	var map = NgMap.getMap("mapaVerRotas").then(function (map) {
 		console.log(map);

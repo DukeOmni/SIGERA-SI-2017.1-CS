@@ -2,6 +2,7 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var alunosSchema = new Schema({
 
+    user:String,
     nome:String,
     endereco:String,
     instituicao: { 
@@ -13,6 +14,7 @@ var alunosSchema = new Schema({
 });
 
 var rotaSchema = new Schema({
+    user:String,
     origem: Array,
     waypoint:Array,
     destino:String,

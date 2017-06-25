@@ -16,6 +16,12 @@ module.exports = function(express_app){
             res.send(querry);
         });
     });
+    express_app.get('/api/rotas/:username',function(req,res){
+        Sigera.Rota().find({user:req.params.username},function(err,querry){
+            if(err)throw err;
+            res.send(querry);
+        });
+    });
 // END POINT para POST em api ROTAS, return 'succes'
     express_app.post('/api/rotas',function(req,res){
 // Caso mande um ID, UPDATE!!! Ele dá o update no objeto como você mandou,
@@ -23,7 +29,7 @@ module.exports = function(express_app){
 // Tome cuidado
         if(req.body._id){
             Sigera.Rota().findByIdAndUpdate(req.body._id,{origem:req.body.origem,waypoint:req.body.waypoint,
-            destino:req.body.destino,data:req.body.data,serial:req.body.serial},function(err,querry){
+            destino:req.body.destino,data:req.body.data,serial:req.body.serial,user:req.body.user},function(err,querry){
                 if(err) throw err;
                 res.send('Success');
 
@@ -33,6 +39,7 @@ module.exports = function(express_app){
         else{
             var novoRota = Sigera.Rota();
             var objectRota = novoRota({
+                user: req.body.user,
                 origem: req.body.origem,
                 waypoint:req.body.waypoint,
                 destino:req.body.destino,

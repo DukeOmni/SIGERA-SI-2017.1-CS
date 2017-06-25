@@ -20,6 +20,13 @@ module.exports = function(express_app){
             res.send(querry);
         });
     });
+// GET que retorna um objeto utilizando o atributo usrname
+    express_app.get('/api/alunos/:usrname',function(req,res){
+        Sigera.Alunos().find({user:req.params.usrname},function(err,querry){
+            if(err)throw err;
+            res.send(querry);
+        });
+    });
 // Endpoint para POST utilizando do body da requisição
     express_app.post('/api/alunos',function(req,res){
 //Se houver um _id no body da requisição http, ele atualiza
@@ -27,7 +34,7 @@ module.exports = function(express_app){
         if(req.body._id){
             Sigera.Alunos().findByIdAndUpdate(req.body._id,{nome:req.body.nome,endereco:req.body.endereco,
             instituicao:{nome:req.body.instituicao.nome,endereco:req.body.instituicao.endereco},
-            telefone:req.body.telefone,serial:req.body.serial},
+            telefone:req.body.telefone,serial:req.body.serial,usr:req.body.user},
             
             function(err,results){
                 if(err)throw err;
@@ -40,6 +47,7 @@ module.exports = function(express_app){
         else{
             var novoAluno = Sigera.Alunos();
             var objectAluno = novoAluno({
+                user:req.body.user,
                 nome:req.body.nome,
                 endereco:req.body.endereco,
                 instituicao:{

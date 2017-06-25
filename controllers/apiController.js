@@ -4,6 +4,7 @@ var bodyparser = require('body-parser');
 module.exports = function(express_app){
 // Mideware sem endpoint aponta para todas requisições, nesse caso
 // para formatar todas as respostas de requisições para JSON
+// Essa api suporta url codificada com % e hexadecimais
     express_app.use(bodyparser.json());
     express_app.use(bodyparser.urlencoded({extended:true}));
 /*----------------------ALUNO---------------------------*/
@@ -15,7 +16,9 @@ module.exports = function(express_app){
         });
     });
 // Endpoint para POST utilizando do body da requisição
-    express_app.post('/api/alunos',function(req,res){    
+    express_app.post('/api/alunos',function(req,res){
+//Se houver um _id no body da requisição http, ele atualiza
+//Só atualiza se o body houver todas as propriedades
         if(req.body._id){
             Sigera.Alunos().findByIdAndUpdate(req.body._id,{nome:req.body.nome,endereco:req.body.endereco,
             instituicao:{nome:req.body.instituicao.nome,endereco:req.body.instituicao.endereco},
@@ -26,6 +29,9 @@ module.exports = function(express_app){
                 res.send('Success');
         })
     }
+// Caso não envie o _id, ele não existe e nesse caso deve ser
+// Adicionado um outro
+// Tirando o _id, deve enviar todas as outras propriedades abaixo
         else{
             var novoAluno = Sigera.Alunos();
             var testeAluno = novoAluno({

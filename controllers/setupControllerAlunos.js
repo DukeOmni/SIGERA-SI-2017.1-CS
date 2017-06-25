@@ -10,7 +10,8 @@ module.exports = function(express_app){
             nome:"UFG - Campus Samambaia",
             endereco: "Goiânia, UFG campus samambaia, Reitoria UFG"
         },
-        telefone: "Exemplo1"
+        telefone: "Exemplo1",
+        serial: "qualquer string"
     },
 		{
         nome: "Joao", endereco: "Goiânia, Praça Cívica",

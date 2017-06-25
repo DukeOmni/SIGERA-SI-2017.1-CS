@@ -12,7 +12,7 @@ module.exports = function(express_app){
         res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
         next();
     });
-/*----------------------ALUNO---------------------------*/
+
 // EndPoint para GET
     express_app.get('/api/alunos/',function(req,res){
         Sigera.Alunos().find({},function(err,querry){
@@ -58,8 +58,8 @@ module.exports = function(express_app){
 // termino da função
     });
 // EndPoint para DELETE 
-    express_app.delete('/api/alunos',function(req,res){
-        Sigera.Alunos().findByIdAndRemove(req.body._id,function(err){
+    express_app.delete('/api/alunos/:id',function(req,res){
+        Sigera.Alunos().findByIdAndRemove({_id:req.params.id},function(err){
             if (err)throw err;
             res.send('Success');
         });

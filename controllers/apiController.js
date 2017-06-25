@@ -51,4 +51,11 @@ module.exports = function(express_app){
         }
 // termino da função
     });
+// EndPoint para DELETE 
+    express_app.delete('/api/alunos',function(req,res){
+        Sigera.Alunos().findByIdAndRemove(req.body._id,function(err){
+            if (err)throw err;
+            res.send('Success');
+        });
+        });
 }/*Término do module.exports*/

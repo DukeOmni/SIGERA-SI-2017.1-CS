@@ -27,7 +27,7 @@ module.exports = function(express_app){
         if(req.body._id){
             Sigera.Alunos().findByIdAndUpdate(req.body._id,{nome:req.body.nome,endereco:req.body.endereco,
             instituicao:{nome:req.body.instituicao.nome,endereco:req.body.instituicao.endereco},
-            telefone:req.body.telefone},
+            telefone:req.body.telefone,serial:req.body.serial},
             
             function(err,results){
                 if(err)throw err;
@@ -46,7 +46,8 @@ module.exports = function(express_app){
                     nome:req.body.instituicao.nome,
                     endereco:req.body.instituicao.endereco
                 },
-                telefone:req.body.telefone
+                telefone:req.body.telefone,
+                serial:req.body.serial
             })
 // Workarround
             objectAluno.save(function(err,results){

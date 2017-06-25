@@ -27,7 +27,8 @@ module.exports = function(express_app){
         })
     }
         else{
-            var novoAluno = Sigera.Alunos({
+            var novoAluno = Sigera.Alunos();
+            var testeAluno = novoAluno({
                 nome:req.body.nome,
                 endereco:req.body.endereco,
                 instituicao:{
@@ -35,8 +36,8 @@ module.exports = function(express_app){
                     endereco:req.body.instituicao.endereco
                 },
                 telefone:req.body.telefone
-            });
-            novoAluno.create(function(err,results){
+            })
+            testeAluno.save(function(err,results){
                 if(err)throw err;
                 res.send('Success');
             })

@@ -354,9 +354,9 @@ ng-map#mapa {
         margin: 25px 25px 25px 25px;
     }
 	.botao-estilo-2{
-		height: 20px;
+		padding: 20px;
 		width: 257px;
-		font-size: 10pt;
+		font-size: 15pt;
 	}
 
 }

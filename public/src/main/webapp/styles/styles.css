@@ -90,7 +90,7 @@ a, a:link, a:visited, a:hover, a:active {
 }
 
 .botao-estilo-2 {
-    font-size: 20pt;
+    font-size: 15pt;
     color: #FFFFFF;
     text-transform: uppercase;
     font-weight: bold;
@@ -98,6 +98,7 @@ a, a:link, a:visited, a:hover, a:active {
     border: 0;
     background-color: #c48366;
     cursor: pointer;
+    width: 335px;
 }
 
 .formulario {

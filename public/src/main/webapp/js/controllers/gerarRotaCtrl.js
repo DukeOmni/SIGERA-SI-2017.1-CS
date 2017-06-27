@@ -1,8 +1,13 @@
-angular.module("siger").controller("gerarRotaCtrl", function($scope,$state, $rootScope, alunosAPI){ //Incluir o serviço alunosAPI
+angular.module("siger").controller("gerarRotaCtrl", function ($scope, $state, $rootScope, alunosAPI)
+{
 	var user = firebase.auth().currentUser;
+
 	$scope.destino;
+
 	$scope.alunos;
-     var carregarAlunos = function(userId){  //Assim que o backend ficar pronto
+
+	var carregarAlunos = function (userId)
+	{ 
 		 alunosAPI.getAlunos(userId).then(function (response)
 		 {
 			 $scope.alunos = response.data;
@@ -13,17 +18,26 @@ angular.module("siger").controller("gerarRotaCtrl", function($scope,$state, $roo
      }; 
 
 
-    $scope.gerarRota = function(alunos){
-        $scope.alunosRota = alunos.filter(function(aluno){
+	$scope.gerarRota = function (alunos)
+	{
+		$scope.alunosRota = alunos.filter(function (aluno)
+		{
             if(aluno.selecionado) return aluno;
-        }); // Após essa linha mandaríamos o array alunosRota para o backend para carregar posteriormente na próxima tela.
+		});
+		
 		$rootScope.rotaAtual = { alunosDaRota: $scope.alunosRota, destino: $scope.destino };
+
 		$state.go("dashboard.mapaRota");
-    };
-    $scope.isAlunoSelecionado = function(alunos){
-        return alunos.some(function(aluno){
+
+	};
+
+	$scope.isAlunoSelecionado = function (alunos)
+	{
+		return alunos.some(function (aluno)
+		{
             return aluno.selecionado;
-        });
+		});
+
 	};
 
 	carregarAlunos(user.uid);

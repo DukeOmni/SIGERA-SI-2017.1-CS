@@ -1,52 +1,80 @@
 ﻿<!DOCTYPE html>
 <html lang="pt-br" ng-app="siger">
-<head>
-	<meta charset="UTF-8" />
-    <script src="https://maps.google.com/maps/api/js?key=AIzaSyBygo_E8OmkOzFg8JiMBZ_feLSRS83nUmA&libraries=geometry"></script>
-	<script src="https://apis.google.com/js/platform.js" async defer></script>
-    <script src="lib/angular.js"></script>
-    <script src="//unpkg.com/angular-ui-router/release/angular-ui-router.min.js"></script>
-    <script src="lib/angular-google-distance.js"></script>
-    <script src="lib/angular-animate.js"></script>
-    <script src="js/script-tags-for-development.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
-    <script src="js/controllers/sigerCtrl.js"></script>
-    <script src="js/value/configValue.js"></script>
-    <script src="js/services/alunosAPIService.js"></script>
-	<script src="js/services/rotasAPIService.js"></script>
-	<script src="https://www.gstatic.com/firebasejs/4.1.3/firebase.js"></script>
-	<script>
-		// Initialize Firebase
-		var config = {
-			apiKey: "AIzaSyCxOJThH8OLkGmZX3C8sqLy7uadO7P8SZk",
-			authDomain: "sigma-hallway-167212.firebaseapp.com",
-			databaseURL: "https://sigma-hallway-167212.firebaseio.com",
-			projectId: "sigma-hallway-167212",
-			storageBucket: "",
-			messagingSenderId: "593348774945"
-		};
-		firebase.initializeApp(config);
-	</script>
+	
+	<head>
 
-	<!-- AngularFire -->
-	<script src="https://cdn.firebase.com/libs/angularfire/2.3.0/angularfire.min.js"></script>
+		<!--Configurações do html-->
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+		<title>SIGER</title>
+	
+		<!--Estilo do projeto-->
+		<link rel="stylesheet" type="text/css" href="styles/styles.css">
 
-	<script src="js/controllers/inicioCtrl.js"></script>
-    <script src="js/controllers/dashboardCtrl.js"></script>
-    <script src="js/controllers/loginCtrl.js"></script>
-    <script src="js/controllers/gerarRotaCtrl.js"></script>
-    <script src="js/controllers/cadastrarAlunoCtrl.js"></script>
-    <script src="js/controllers/mapaRotaCtrl.js"></script>
-    <script src="js/controllers/verRotasCtrl.js"></script>
-	<script src="js/controllers/registrarCtrl.js"></script>
-	<script src="js/routers/sigerRouter.js"></script>
-	<script src="js/services/serialGenerateService.js"></script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SIGER</title>
-    <link rel="stylesheet" type="text/css" href="styles/styles.css">
-</head>
-<body>
-<div ui-view></div>
-</body>
+		<script src="https://maps.google.com/maps/api/js?key=AIzaSyBygo_E8OmkOzFg8JiMBZ_feLSRS83nUmA&libraries=geometry"></script> <!-- Adição da api do google maps-->
+
+		<script src="https://apis.google.com/js/platform.js" async defer></script> <!-- Adição da api para login multiplataforma do google maps-->
+
+		<script src="lib/angular.js"></script> <!-- Adição do arquivo javascript do AngularJS-->
+
+		<script src="//unpkg.com/angular-ui-router/release/angular-ui-router.min.js"></script> <!-- Adição do arquivo javascript do roteamento do projeto-->
+
+		<script src="lib/angular-google-distance.js"></script> <!-- Adição do arquivo javascript da bind da api do google distance para AngularJS-->
+
+		<script src="lib/angular-animate.js"></script> <!-- Adição do arquivo javascript do Angular-Animate que permite implementação de animações baseadas em eventos do Angular-->
+
+		<script src="js/script-tags-for-development.js"></script> <!-- Adição dos arquivos javascript necessários para que o ngMaps funcione no projeto-->
+ 
+		<!-- Adição dos controllers Angular da aplicação-->
+		<script src="js/controllers/sigerCtrl.js"></script>
+		<script src="js/controllers/inicioCtrl.js"></script>
+		<script src="js/controllers/dashboardCtrl.js"></script>
+		<script src="js/controllers/loginCtrl.js"></script>
+		<script src="js/controllers/gerarRotaCtrl.js"></script>
+		<script src="js/controllers/cadastrarAlunoCtrl.js"></script>
+		<script src="js/controllers/mapaRotaCtrl.js"></script>
+		<script src="js/controllers/verRotasCtrl.js"></script>
+		<script src="js/controllers/registrarCtrl.js"></script>
+		<!--Fim da adição dos controller Angular da aplicação-->
+
+		<!--Adição dos serviços Angular da aplicação-->
+		<script src="js/services/alunosAPIService.js"></script>
+		<script src="js/services/rotasAPIService.js"></script>
+		<script src="js/services/serialGenerateService.js"></script>
+		<!--Fim da adição dos serviços Angular da aplicação-->
+
+		<!--Adição do javascript do roteador da aplicação-->
+		<script src="js/routers/sigerRouter.js"></script>
+
+		<!--Adição de arquivos javascript de configuração-->
+		<script src="js/value/configValue.js"></script>
+		<!--Fim da adição dos arquivos javascript de configuração-->
+
+		<!--Adição do javascript do Firebase-->
+		<script src="https://www.gstatic.com/firebasejs/4.1.3/firebase.js"></script>
+	
+		<!--Configurando conexão com o Firebase-->
+		<script>
+			var config = {
+				apiKey: "AIzaSyCxOJThH8OLkGmZX3C8sqLy7uadO7P8SZk",
+				authDomain: "sigma-hallway-167212.firebaseapp.com",
+				databaseURL: "https://sigma-hallway-167212.firebaseio.com",
+				projectId: "sigma-hallway-167212",
+				storageBucket: "",
+				messagingSenderId: "593348774945"
+			};
+			firebase.initializeApp(config);
+		</script>
+
+		<!-- Adição do javascript do AngularFire -->
+		<script src="https://cdn.firebase.com/libs/angularfire/2.3.0/angularfire.min.js"></script>
+   
+	</head>
+	<body>
+
+		<div ui-view></div>
+
+	</body>
+
 </html>

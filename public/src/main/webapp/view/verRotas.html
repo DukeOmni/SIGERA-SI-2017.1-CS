@@ -1,23 +1,34 @@
 <div class="container-desktop" id="verRotas">
-    <table class="ver-alunos-tabela" style="float: left;" ng-if="rotasCompletas.length > 0 && !pauseLoading">
-        <tr ng-repeat="rota in rotasCompletas">
-            <td class="ver-alunos" id="{{rota.serial}}Accordion" style="width:100%;"><p style="width: 100%; margin:0; font-size: 20pt" ng-click="mostrarRota(rota.serial)">{{rota.data | date: "dd/MM/yy, hh:mm"}}</p>
+
+    <table class="ver-alunos-tabela" style="float: left;" ng-if="rotasCompletas.length > 0 && !pauseLoading"> <!--Tabela onde serão exibidas as rotas-->
+
+		<tr ng-repeat="rota in rotasCompletas"> <!--Iterando no array rotas completas, chamando cada elemento de rota-->
+            
+			<td class="ver-alunos" id="{{rota.serial}}Accordion" style="width:100%;"><p style="width: 100%; margin:0; font-size: 20pt" ng-click="mostrarRota(rota.serial)">{{rota.data | date: "dd/MM/yy, hh:mm"}}</p> <!--A lógica aqui é que será renderizada uma tr para cada elemento no array rotasCompletas, cada tr conterá uma td cujo o id é o serial de cada elemento, dessa forma podemos identificar unicamente cada td para aplicar a animação para a div aparecer com o mapa da rota em questão.-->
+				
 				<div id="{{rota.serial}}" style="width:100%;" ng-if="rotasCompletas.length > 0" class="aluno-selecionado">
+					
 					<ng-map center="{{rota.origin}}" default-style="false">
+						
 						<directions draggable="false"
 									travel-mode="{{travelMode}}"
 									origin="{{rota.origem[0]}}"
 									waypoints="{{rota.waypoint}}"
 									destination="{{rota.destino}}">
 						</directions>
+
 					</ng-map>
+
 				</div>
+
 			</td>
 
         </tr>
+
     </table>
-    
+
     <div ng-if="rotasCompletas.length == 0">
         <h2>Gere uma rota para visualizar aqui!</h2>
     </div>
+
 </div>

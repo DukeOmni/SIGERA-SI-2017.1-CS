@@ -1,8 +1,11 @@
-<div  ng-if = "!pauseLoading" id="mapaRota" class="container-desktop">
-    <div id ="container-mapa" map-lazy-load = "https://maps.google.com/maps/api/js"
-         map-lazy-load-params = "{{googleMapsUrl}}">
+<div  ng-if = "!pauseLoading" id="mapaRota" class="container-desktop"> <!--O atributo ng-if determina uma condição para a existência de um elemento HTML. Se a expressão do ng-if for false o elemento não é renderizado caso não exista e se já existir o elemento é destruído. Aqui a condição é determinada pelo valor da variável pauseLoading, consultar o arquivo mapaRotaCtrl.js para mais detalhes.-->
+
+    <div id ="container-mapa" map-lazy-load = "https://maps.google.com/maps/api/js" map-lazy-load-params = "{{googleMapsUrl}}"> <!--Div que contém o mapa do google maps com o atributo map-lazy-load que serve para carregamento mais lento do mapa.-->
+
         <ng-map id="mapa" center = "current-location" map-initialized = "mapInit(map)" default-style="false" zoom = "{{zoom}}">
-            <directions
+
+            <!--Passando parâmetros para a renderização da rota no mapa da tela-->
+			<directions
                     draggable = "true"
                     travel-mode = "{{travelMode}}"
                     panel="directions-panel"
@@ -10,8 +13,12 @@
                     waypoints = "{{waypoint}}"
                     destination = "{{destino}}"
                 ></directions> 
+
         </ng-map>
+
     </div>
-    <div id="directions-panel">
+
+    <div id="directions-panel"> <!--Painel do caminho da rota que é exibido ao lado do mapa.-->
     </div>
+
 </div>

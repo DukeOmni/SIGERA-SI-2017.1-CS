@@ -1,23 +1,36 @@
 <div class="container-desktop" id="verAlunos">
     <table class="ver-alunos-tabela">
-        <tr ng-repeat="aluno in alunos">
-            <td class="ver-alunos" ng-click="mostrarAluno(aluno.serial)" id="{{aluno.serial}}Accordion">{{aluno.nome}}
+
+        <tr ng-repeat="aluno in alunos"> <!--A mesma lógica da tela verRotas é aplicada aqui-->
+
+            <td class="ver-alunos" ng-click="mostrarAluno(aluno.serial)" id="{{aluno.serial}}Accordion">
+				{{aluno.nome}}
+
                 <div class="aluno-selecionado" id="{{aluno.serial}}">
-                <p>Endereço: {{aluno.endereco}} <br>
-                Instituição: {{aluno.instituicao.nome}} <br>
-                Telefone: {{aluno.telefone}} <br>
-				<a ng-click="deletarAluno(aluno)" style="cursor:pointer; color: white">
-					Deletar
-				</a>	
+
+					<p>
+						Endereço: {{aluno.endereco}} <br>
+						Instituição: {{aluno.instituicao.nome}} <br>
+						Telefone: {{aluno.telefone}} <br>
+
+						<a ng-click="deletarAluno(aluno)" style="cursor:pointer; color: white"><!--Ao clicar nesse anchor a função deleter aluno é chamada, passando o aluno atual como parâmetro-->
+							Deletar
+						</a>	
+
 					</p>
+
                 </div>
+
             </td>
-        </tr>  
+
+        </tr>
+		
     </table>
+	
 	<a>
 		<div ng-click="recarregarAlunos()" class="botao-home" style="cursor: pointer;">
 			Recarregar alunos
 		</div>
 	</a>
-    
+
 </div>

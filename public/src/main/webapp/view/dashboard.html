@@ -1,38 +1,60 @@
 <div class="container-topo">
+
     <div class="contentTopo">
-        <a href=""><img src="images/menuIcon.png" id="iconeMenu" ng-if="!detectMobile()" ng-click="mudarViewMenu()"></a>
+
+        <a href=""><img src="images/menuIcon.png" id="iconeMenu" ng-if="!detectMobile()" ng-click="mudarViewMenu()"></a><!--Ao clicar no ícone do menu, a função mudarViewMenu() é acionada e troca as propriedades de CSS do menu para que ele deslize para a esquerda, é aqui que o ng-animate é necessário pois o evento que dispara essa ação é um evento do angular.-->
+
         <h1><a ui-sref="dashboard"> SIGER</a></h1>
+
     </div>
+
 </div>
+
 <div ng-if="!detectMobile()" style="height: 91vh; position: relative;"> <!-- Versão desktop -->
+
     <div class="container-menu animate-if" ng-if="viewMenu">
-        <ul class="botao-menu">
+
+        <ul class="botao-menu"> 
+
+			<!--Para cada botão do menu o roteamento redireciona para um estado diferente, dessa forma sabendo em qual estado o sistema está podemos determinar qual botão receberá a classe CSS active. Observação: estado corresponde a página no nosso sistema.-->
             <a ui-sref="dashboard.inicio">
                 <li ng-class="{active: $state.current.name == 'dashboard.inicio'}">Início</li>
             </a>
+
             <a ui-sref="dashboard.cadastrarAluno">
                 <li ng-class="{active: $state.current.name == 'dashboard.cadastrarAluno'}">Cadastrar alunos</li>
             </a>
+
             <a ui-sref="dashboard.verAlunos">
                 <li ng-class="{active: $state.current.name == 'dashboard.verAlunos'}">Ver alunos</li>
             </a>
+
             <a ui-sref="dashboard.gerarRota">
                 <li ng-class="{active: $state.current.name == 'dashboard.gerarRota'}">Gerar rota</li>
             </a>
+
             <a ui-sref="dashboard.verRotas">
                 <li ng-class="{active: $state.current.name == 'dashboard.verRotas'}">Ver rotas</li>
             </a>
+
             <a ui-sref="dashboard.sobreNos">
                 <li ng-class="{active: $state.current.name ==  'dashboard.sobreNos'}">Sobre nós</li>
             </a>
-			<a ui-sref="login" ng-click="deslogar()">
+
+			<a ui-sref="login" ng-click="deslogar()"><!--Chamada da função que desloga o usuário autal-->
 				<li>Logout</li>
 			</a>
+
         </ul>
+
     </div>
-<div ui-view class="slide-right"></div>
+
+	<div ui-view class="slide-right"></div><!--É aqui que é injetado o html de cada view do sistema, sendo que cada view corresponde a um estado diferente.-->
+
 </div>
-<div class="container-botao" ng-if="detectMobile() && $state.current.name == 'dashboard'">
+
+<div class="container-botao" ng-if="detectMobile() && $state.current.name == 'dashboard'"> <!--Menu da versão mobile do sistema.-->
+
     <a ui-sref="dashboard.cadastrarAluno">
         <div class="botao-home">Cadastrar Aluno</div>
     </a>
@@ -46,5 +68,6 @@
 	</a>
 
 </div>
+
 <div ng-if="detectMobile()" ui-view></div>
 

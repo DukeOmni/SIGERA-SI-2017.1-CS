@@ -1,3 +1,4 @@
-angular.module("siger").controller("inicioCtrl", function ($scope){
+angular.module("siger").controller("inicioCtrl", function ($scope)
+{
 	
 });

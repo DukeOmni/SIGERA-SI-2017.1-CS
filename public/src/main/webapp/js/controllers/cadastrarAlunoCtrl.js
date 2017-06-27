@@ -1,4 +1,5 @@
-angular.module("siger").controller("cadastrarAlunoCtrl", function ($scope, $rootScope, alunosAPI, serialGenerate) {
+angular.module("siger").controller("cadastrarAlunoCtrl", function ($scope, $rootScope, alunosAPI, serialGenerate) 
+{
 	$scope.instituicoes = $rootScope.instituicoes;
 
 	var user = firebase.auth().currentUser;
@@ -10,12 +11,15 @@ angular.module("siger").controller("cadastrarAlunoCtrl", function ($scope, $root
 			if (aluno.instituicao == $scope.instituicoes[i].nome)
 				aluno.instituicao = $scope.instituicoes[i];
 		};
+
 		aluno.serial = serialGenerate.generateSerial();
+
 		aluno.user = user.uid;
-		console.log(JSON.stringify(aluno));
+
 		 alunosAPI.saveAluno(aluno).then(function ()
 		 {
-             delete $scope.aluno;
+			 delete $scope.aluno;
+
              $scope.formAluno.$setPristine();
          });
      };

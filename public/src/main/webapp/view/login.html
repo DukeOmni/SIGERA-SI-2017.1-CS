@@ -1,21 +1,40 @@
 <form action="/" id="myLogin" class="formulario">
+
     <div class="container-login">
+
         <div class="formulario-grupo">
+
             <label>Usuário:</label>
             <input type="text" name="usuario" id="usuario" class="formulario-input" ng-model="email" placeholder="email">
+
         </div>
+
         <div class="formulario-grupo">
+
             <label>Senha:</label>
+
             <input type="password" name="senha" id="senha" class="formulario-input" ng-model="senha" placeholder="senha">
+
         </div>
+
         <div class="formulario-botao-container">
+
             <button class="botao-estilo-2" type="button" ng-click="logarComEmail(email,senha)">Login</button>
+
         </div>
+
 		<div class="formulario-botao-container">
+
 			<button class="botao-estilo-2" type="button" ui-sref="registrar">Cadastrar-se</button>
+
 		</div>
+
 		<div class="formulario-botao-container">
+
 			<button class="botao-estilo-2" type="button" ng-click="logarComGoogle()">Logar com google</button>
+
 		</div>
+
     </div>
+
 </form>

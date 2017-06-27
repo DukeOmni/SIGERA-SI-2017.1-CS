@@ -1,16 +1,29 @@
 <form action="/" id="myLogin" class="formulario">
+
 	<div class="container-login">
+
 		<div class="formulario-grupo">
+
 			<label>Usuário:</label>
-			<input type="text" name="usuario" id="usuario" class="formulario-input" ng-model="email" placeholder="email">
+
+			<input type="text" name="usuario" id="usuario" class="formulario-input" ng-model="email" placeholder="email"> <!--Para cada input dessa tela, definido o ng-model sobre uma propriedade do usuário, no caso aqui são email e senha-->
+
 		</div>
+
 		<div class="formulario-grupo">
+
 			<label>Senha:</label>
+
 			<input type="password" name="senha" id="senha" class="formulario-input" ng-model="senha" placeholder="senha">
+
 		</div>
+
 		<div class="formulario-botao-container">
-			<button class="botao-estilo-2" type="button" ng-click="register(email, senha)">Registrar</button>
+
+			<button class="botao-estilo-2" type="button" ng-click="register(email, senha)">Registrar</button><!-- Chamada da função que cria um usuário no banco do firebase com o email e a senha passados pelo usuário-->
+
 		</div>
+
 		<div class="formulario-botao-container">
 			<button class="botao-estilo-2" type="button" ui-sref="login">Voltar</button>
 		</div>
